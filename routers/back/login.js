@@ -214,7 +214,7 @@ router.post('/money',function(req,res,next){
         res.redirect('/back/login');
     }
 });
-//新闻类型
+//资金信息
 router.post('/newstype',function(req,res,next){
     logger.info(req.url);
     var uname = req.body.username;
@@ -227,7 +227,7 @@ router.post('/newstype',function(req,res,next){
         res.redirect('/back/login');
     }
 });
-//新闻内容
+//资金信息
 router.post('/newscontent',function(req,res,next){
     logger.info(req.url);
     var uname = req.body.username;
