@@ -77,7 +77,7 @@ var NewsTypeTable = function () {
                 }
             ],
             fnRowCallback: function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
-                $('td:eq(1)', nRow).attr('style', 'text-align: center;');
+                $('td:eq(1), td:eq(2), td:eq(3), td:eq(4), td:eq(5)', nRow).attr('style', 'text-align: center;');
             }
         });
         table.find('.group-checkable').change(function () {
