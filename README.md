@@ -1,1 +1,2 @@
 # paper_web
+需要安装redis和jsonwebtoken两个模块
