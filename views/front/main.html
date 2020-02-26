@@ -60,7 +60,38 @@
     <script src="/public/front/js/pages/sockjs-0.3.js"></script>
     <script src="/public/front/js/pages/rmq.js"></script>
     <script src="/public/front/js/pages/form.js"></script>
-
+	<style>
+		.biye_information{
+			margin-top: 8px;
+		}
+		.biye_information p{
+			margin: 0;
+		}
+		.biye_information img{
+			float: left;
+			width: 50px; 
+			height: 50px; 
+			margin-top: 0px; 
+			border-radius: 50%!important;
+			margin-left: 20px;
+		}
+		.biye_information .name{
+			font-size: 18px;
+			color: #262626;
+			width: 150px;
+			height: 26px;
+			line-height: 26px;
+			overflow: hidden;
+		}
+		.biye_information .member{
+			margin-top: 5px; 
+			color:#e02222;
+			font-size: 14px;
+		}
+		.pull-left{float: left;}
+		.pull-right{float: right;}
+		.di-n{display: none;}
+	</style>
 </head>
 <body>
     <div class="paper-container">
@@ -72,17 +103,23 @@
                         <img src="/public/front/images/logo.png">
                     </div>
                     <div>
-                        {%if !openid %}
+                      {%if !openid %}
                         <div class="login-btn" id="login-btn" style="margin-top: 10px">快捷登录</div>
                         {% endif %}
-                        {%if openid %}
-                        <div>
-                            <img src="{{ headimgurl }}" style="width: 50px; height: 50px; margin-top: -10px; border-radius: 50%!important;">
-                            <span>{{ nickname }}</span>
-                        </div>
-                        <div style="margin-top: 5px; color:#e02222; display: none" id="endtime">会员到期日：<span id="time"> </span></div>
-                        <div style="margin-top: 5px; color:#e02222; display: none" id="novip">非VIP会员</div>
-                        {% endif %}
+						
+						{%if openid %}
+						<div class="pull-right biye_information">
+							<div class="pull-left" style="text-align: right;">
+								<p class="name">{{ nickname }}</p>
+								<p class="member di-n" id="endtime">会员到期日：<span id="time"> </span>
+								</p>
+								<p class="member di-n" id="novip">非VIP会员</p>
+							</div>
+							 <img src="{{ headimgurl }}">
+						</div>
+						{% endif %}
+                       
+                        
                     </div>
                 </div>
 
@@ -106,33 +143,45 @@
                 <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0"></div>
                 <div class="col-lg-6 col-md-10 col-sm-10 col-xs-12" style="z-index: 1">
                     <div class="banner">
-                        <div class="head-brand">
-                            <div>
-                                <div class="brand-img"></div>
-                            </div>
-                            <div>
-                                <div class="brand-img"></div>
-                            </div>
-                            <div>
-                                <div class="brand-img"></div>
-                            </div>
-                            <div>
-                                <div class="brand-img"></div>
-                            </div>
-                            <div>
-                                <div></div>
-                            </div>
-                        </div>
-                        <div class="head-visit">
-                            <div>
-                                <span>访问量：</span>
-                                <span data-counter="counterup" data-value="{{ visit }}">{{ visit }}</span>
-                            </div>
-                            <div>
-                                <span>点赞数：</span>
-                                <span data-counter="counterup" data-value="{{ zan }}" id="zan-number">{{ zan }}</span>
-                            </div>
-                        </div>
+						<div class="head-brand">
+							<div class="brand-img">
+								<img src="../../public/front/images/sb.png" alt="">
+								<p>品牌商标</p>
+							</div>
+							<div class="brand-img">
+								<img src="../../public/front/images/rz.png" alt="">
+								<p>品牌软著</p>
+							</div>
+							<div class="brand-img">
+								<img src="../../public/front/images/tm.png" alt="">
+								<p>天猫品牌</p>
+							</div>
+							<div class="brand-img">
+								<img src="../../public/front/images/mj.png" alt="">
+								<p>修改秘籍</p>
+							</div>
+							<div class="brand-img">
+								<img src="../../public/front/images/yhq.png" alt="">
+								<p>领取优惠券</p>
+							</div>
+						</div>						
+						<div class="head-visit">
+							<div>								
+								<p data-counter="counterup" data-value="{{ visit }}">{{ visit }}</p>
+								<p>访问量</p>
+							</div>
+							<div style="margin-top: 20px;">
+								<p data-counter="counterup" data-value="{{ zan }}" id="zan-number">{{ zan }}</p>
+								<p>点赞数</p>
+							</div>
+						</div>
+						<ul>
+							<div class="ban_hover_img1"></div>
+							<div class="ban_hover_img2"></div>
+							<div class="ban_hover_img3"></div>
+							<div class="ban_hover_img4"></div>
+							<div class="ban_hover_img5"></div>
+						</ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0" style="padding-left: 0; margin-left: -60px; z-index: 0">
@@ -144,8 +193,8 @@
 
             {%block main%}{%endblock%}
         </div>
-
-        <div class="foot">
+		
+    <!--    <div class="foot">
             <div class="row1">
                 <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0" style="background-color: #272D36;"></div>
                 <div class="col-lg-6 col-md-10 col-sm-10 col-xs-12" style="padding: 0;background-color: #272D36;text-align: center">
@@ -160,9 +209,57 @@
                 </div>
                 <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0" style="background-color: #f60"></div>
             </div>
-        </div>
+        </div> -->
     </div>
-
+<!-- foot -->
+		<div class="foot">
+			<div class="foot_link clearfix">
+				<div class="pull-left box1">
+					<div class="title">友情链接</div>
+					<div><a href="#">知网查重服务</a></div>
+					<div><a href="#">万方论文检测</a></div>
+					<div><a href="#">维普论文检测</a></div>
+				</div>
+				<div class="pull-left box1">
+					<div class="title">联系我们</div>
+					<div>电话：010-1234 5678</div>
+					<div>邮箱：biyezhijia@biye.com</div>
+					<div>微信：wbd-bd</div>
+				</div>
+				<div class="pull-left box1">
+					<div>
+						<img style="display: inline-block;" src="../../public/front/images/weibo.png" alt="">
+						<span style="font-size: 14px; color: #a7a7a7; margin-left: 10px;">官方微博</span>
+					</div>
+				</div>
+				<div class="pull-left box4">
+					<div class="pull-left" style="text-align: center;">
+						<img style="display: inline-block;" src="../../public/front/images/ewm.png" alt="">
+						<p>扫码使用小程序</p>						<p>手机完成查重</p>
+					</div>
+					<div class="pull-left" style="margin-left: 20px;text-align: center;">
+						<img style="display: inline-block;" src="../../public/front/images/ewm.png" alt="">
+						<p>扫码关注公众号</p>
+						<p>获取更多信息</p>
+					</div>
+				</div>
+			</div>
+			<div class="record">
+				<ul>
+					<li style="margin-right: 20px;">粤ICP备18137964号-1 © 2016-2019 毕业之家版权所有</li>
+					<li><a>公司简介</a>|</li>
+					<li><a>联系我们</a>|</li>
+					<li><a>招聘信息</a>|</li>
+					<li><a>招聘信息</a>|</li>
+					<li><a>隐私政策</a>|</li>
+					<li><a>广告服务</a>|</li>
+					<li><a>网站地图</a>|</li>
+					<li><a>不良信息举报</a>|</li>
+					<li><a>客服举报</a></li>
+				</ul>
+				    
+			</div>
+		</div>
     <script src="/public/front/js/jquery.liMarquee.js"></script>
     <script src="/public/front/plugins/counterup/jquery.counterup.min.js"></script>
     <script src="/public/front/plugins/counterup/jquery.waypoints.min.js"></script>
@@ -213,6 +310,18 @@
                 }
             });
         }
+		//首页banner经过效果	
+		$(function(){	
+			$('.head-brand div').mouseover(function() {
+				var i = $(this).index();
+				$('.banner ul div').eq(i).show().siblings().hide();
+			});
+			$('.head-brand div').mouseout(function() {
+				var i = $(this).index();
+				$('.banner ul div').eq(i).hide().siblings().hide();
+			});
+			  
+		})
     </script>
 </body>
 </html>

@@ -118,7 +118,51 @@ router.post('/question',function(req,res,next){
         zan: zan
     });
 });
-
+//联系我们
+router.post('/contact',function(req,res,next){
+    logger.info(req.url);
+    res.render('front/contact',{
+        openid: req.session["openid"],
+        nickname: req.session["nickname"],
+        headimgurl :req.session["headimgurl"],
+        vip: req.session["vip"],
+        free: req.session["free"],
+        code: req.session["code"],
+        endtime: req.session["endtime"],
+        visit: visit,
+        zan: zan
+    });
+});
+//行业新闻
+router.post('/news',function(req,res,next){
+    logger.info(req.url);
+    res.render('front/news',{
+        openid: req.session["openid"],
+        nickname: req.session["nickname"],
+        headimgurl :req.session["headimgurl"],
+        vip: req.session["vip"],
+        free: req.session["free"],
+        code: req.session["code"],
+        endtime: req.session["endtime"],
+        visit: visit,
+        zan: zan
+    });
+});
+//新闻详情
+router.post('/news_info',function(req,res,next){
+    logger.info(req.url);
+    res.render('front/news_info',{
+        openid: req.session["openid"],
+        nickname: req.session["nickname"],
+        headimgurl :req.session["headimgurl"],
+        vip: req.session["vip"],
+        free: req.session["free"],
+        code: req.session["code"],
+        endtime: req.session["endtime"],
+        visit: visit,
+        zan: zan
+    });
+});
 router.post('/user/save', function(req,res, next){
     logger.info("存储用户信息");
     var vip = req.body.vip;
