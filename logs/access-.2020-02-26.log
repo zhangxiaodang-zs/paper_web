@@ -678,3 +678,57 @@
 [2020-02-26T11:32:07.452] [INFO] http - null
 [2020-02-26T11:32:07.453] [INFO] http - 17251
 [2020-02-26T11:32:07.470] [INFO] http - [::ffff:127.0.0.1 GET /public/front/css/bootstrap.min.css.map 404 34ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
+[2020-02-26T11:54:41.023] [INFO] http - 获取访问量和点赞数
+[2020-02-26T11:54:41.058] [INFO] http - null
+[2020-02-26T11:54:41.058] [INFO] http - 17253
+[2020-02-26T11:54:41.074] [INFO] http - /
+[2020-02-26T11:54:41.091] [INFO] http - 访问量+1
+[2020-02-26T11:54:41.169] [INFO] http - [::ffff:127.0.0.1 GET / 200 164ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
+[2020-02-26T11:54:42.097] [INFO] http - 获取访问量和点赞数
+[2020-02-26T11:54:42.117] [INFO] http - null
+[2020-02-26T11:54:42.117] [INFO] http - 17254
+[2020-02-26T11:54:42.134] [INFO] http - [::ffff:127.0.0.1 GET /public/front/css/bootstrap.min.css.map 404 37ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
+[2020-02-26T11:59:52.144] [INFO] http - 获取访问量和点赞数
+[2020-02-26T11:59:52.162] [INFO] http - null
+[2020-02-26T11:59:52.163] [INFO] http - 17254
+[2020-02-26T11:59:52.177] [INFO] http - /
+[2020-02-26T11:59:52.192] [INFO] http - 访问量+1
+[2020-02-26T11:59:52.202] [INFO] http - [::ffff:127.0.0.1 GET / 200 57ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
+[2020-02-26T11:59:52.563] [INFO] http - 获取访问量和点赞数
+[2020-02-26T11:59:52.580] [INFO] http - null
+[2020-02-26T11:59:52.580] [INFO] http - 17255
+[2020-02-26T11:59:52.602] [INFO] http - [::ffff:127.0.0.1 GET /public/front/css/bootstrap.min.css.map 404 40ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
+[2020-02-26T12:03:48.035] [INFO] http - 获取访问量和点赞数
+[2020-02-26T12:03:48.128] [INFO] http - null
+[2020-02-26T12:03:48.128] [INFO] http - 17255
+[2020-02-26T12:03:48.144] [INFO] http - /
+[2020-02-26T12:03:48.161] [INFO] http - 访问量+1
+[2020-02-26T12:03:48.170] [INFO] http - [::ffff:127.0.0.1 GET / 200 135ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
+[2020-02-26T12:03:48.606] [INFO] http - 获取访问量和点赞数
+[2020-02-26T12:03:48.621] [INFO] http - null
+[2020-02-26T12:03:48.621] [INFO] http - 17256
+[2020-02-26T12:03:48.638] [INFO] http - [::ffff:127.0.0.1 GET /public/front/css/bootstrap.min.css.map 404 31ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
+[2020-02-26T12:04:20.873] [INFO] http - 获取访问量和点赞数
+[2020-02-26T12:04:20.889] [INFO] http - null
+[2020-02-26T12:04:20.889] [INFO] http - 17256
+[2020-02-26T12:04:20.903] [INFO] http - /
+[2020-02-26T12:04:20.918] [INFO] http - 访问量+1
+[2020-02-26T12:04:20.924] [INFO] http - [::ffff:127.0.0.1 GET / 200 52ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
+[2020-02-26T12:21:59.644] [INFO] http - 获取访问量和点赞数
+[2020-02-26T12:21:59.667] [INFO] http - null
+[2020-02-26T12:21:59.668] [INFO] http - 17260
+[2020-02-26T12:21:59.686] [INFO] http - /
+[2020-02-26T12:21:59.702] [INFO] http - 访问量+1
+[2020-02-26T12:21:59.740] [INFO] http - [::ffff:127.0.0.1 GET / 200 97ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
+[2020-02-26T12:22:01.551] [INFO] http - 获取访问量和点赞数
+[2020-02-26T12:22:01.567] [INFO] http - null
+[2020-02-26T12:22:01.567] [INFO] http - 17261
+[2020-02-26T12:22:01.582] [INFO] http - /
+[2020-02-26T12:22:01.599] [INFO] http - 访问量+1
+[2020-02-26T12:22:01.610] [INFO] http - [::ffff:127.0.0.1 GET / 200 60ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
+[2020-02-26T12:22:07.567] [INFO] http - 获取访问量和点赞数
+[2020-02-26T12:22:07.583] [INFO] http - null
+[2020-02-26T12:22:07.583] [INFO] http - 17262
+[2020-02-26T12:22:07.597] [INFO] http - /
+[2020-02-26T12:22:07.611] [INFO] http - 访问量+1
+[2020-02-26T12:22:07.625] [INFO] http - [::ffff:127.0.0.1 GET / 200 53ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
