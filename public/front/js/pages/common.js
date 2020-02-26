@@ -146,6 +146,39 @@ function btnEnable(id){
 
 $(".el-menu-item").on("click", function(){
     var url = $(this).data("url");
+    if(url=='news'){
+        $(".item-check").removeClass('di-n');
+        $(".el-menu-item").eq(2).addClass("is-active").siblings().removeClass('is-active');
+        return false;
+    }
+    if(url=='question'){
+        $(".item-search").removeClass('di-n');
+        $(".el-menu-item").eq(3).addClass("is-active").siblings().removeClass('is-active');
+        return false;
+    }
+    if(url=='contact'){
+       $(".item_contact").removeClass('di-n');
+      $(".el-menu-item").eq(4).addClass("is-active").siblings().removeClass('is-active');
+       return false;
+    }
+    var form = document.createElement('form');
+    form.action = url;
+    form.method = 'post';
+    $(document.body).append(form);
+    form.submit();
+});
+//二级菜单
+$(".el-divider").on("click", function(){
+    var url = $(this).data("url");
+    var form = document.createElement('form');
+    form.action = url;
+    form.method = 'post';
+    $(document.body).append(form);
+    form.submit();
+});
+//新闻详情
+$(".news_con ul li,.question_con ul li").on("click", function(){
+    var url = $(this).data("url");
     var form = document.createElement('form');
     form.action = url;
     form.method = 'post';
@@ -228,3 +261,6 @@ function vipTimeDisplay(){
         $("#novip").show();
     }
 }
+
+//新闻列表接口
+
