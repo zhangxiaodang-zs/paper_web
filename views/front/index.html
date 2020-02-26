@@ -176,9 +176,10 @@
                                         <div class="btn-group">
                                             <button class="el-button el-button--default el-button--small is-plain"
                                                     type="button" id="pay-btn" data-type="1">
-                                                <span>
-                                                    <i class="el-icon-collection-tag"></i> 付费包月
-                                                </span>
+                                                <p>
+                                                    <span>¥ 12.2</span>&nbsp;&nbsp; 3元/包月
+<!--                                                    <i class="el-icon-collection-tag"></i> 付费包月-->
+                                                </p>
                                             </button>
                                             <div class="dropdown-menu paymenu" style="width: 600px; text-align: center">
                                                 <div class="row">
@@ -217,7 +218,7 @@
                                             </span>
                                         </button>-->
                                         {%if free == 'false' || !free %}
-                                        <span class="el-tip" id="free-tips">新用户可免费查重一次</span>
+                                        <span class="el-tip" id="free-tips">包月2折优惠活动仅剩3天</span>
                                         {% endif %}
                                         <input type="text" style="display: none" name="type" id="type">
                                     </div>

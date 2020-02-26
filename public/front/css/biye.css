@@ -177,6 +177,19 @@
     font-size: 14px;
     color: #262626;
 }
+.el-button p{
+    font-size: 14px;
+    color: #cbcbcb;
+    padding: 0;
+    margin: 0;
+}
+.el-button p span{
+    font-size: 16px;
+    color: #a1cf40;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+}
 .el-button--success.is-plain:focus, .el-button--success.is-plain:hover {
     background: #67c23a;
     border-color: #67c23a;
@@ -208,7 +221,7 @@
     font-size: 12px;
     color: red;
     margin-top: 7px;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 @media screen and (min-width: 0) {
@@ -512,7 +525,7 @@
 .foot .foot_link{
     display: flex;
 	margin: 0 auto;
-    width: 70%;
+    width: 65%;
 	margin-bottom: 30px;
 }
 
@@ -571,4 +584,11 @@
 }
 .foot a:hover{
 	color: red !important;
+}
+
+.el-divider {
+    font-size: 14px;
+    color: #a1cf40;
+    background-color: transparent;
+    position: relative;
 }
