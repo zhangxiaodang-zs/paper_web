@@ -10,13 +10,53 @@
         line-height: 1!important;
         margin-bottom: 0!important;
     }
+    .nav-tabs {
+         border-bottom: none;
+    }
     .nav-tabs li{
-        width: 50%
+        width: 36%
+    }
+    .nav-tabs li a{
+        border: solid 1px #dcdcdc;
+        border-radius: 6px !important;
+        width: 146px;
+        text-align: center;
+        padding: 0;
+        height: 33px;
+        line-height: 33px;
+        font-size: 14px;
+        color: #262626;
+        font-weight: 100;
     }
     .nav-tabs > li.active > a,
     .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
-        border: 0;
-        border-bottom: 2px solid #409eff;
+        background: #a1cf40;
+        border-radius: 6px !important;
+        width: 146px;
+        text-align: center;
+        height: 33px;
+        line-height: 33px;
+        padding: 0;
+        border: 1px solid #dcdcdc;
+    }
+    .nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+        border: solid 1px #dcdcdc;
+        border-radius: 6px !important;
+        width: 146px;
+        text-align: center;
+        padding: 0;
+        height: 33px;
+        line-height: 33px;
+        background-color: #ecf5ff !important;
+    }
+    .el-button.is-plain:focus, .el-button.is-plain:hover {
+        border-color: #c6e2ff !important;
+        background-color: #ecf5ff !important;
+    }
+    .el-button--success:focus, .el-button--success:hover {
+        background: #a1cf40;
+        border-color: #a1cf40;
+        color: #262626;
     }
 </style>
 
@@ -105,7 +145,7 @@
                                         {%if free == 'false' || !free %}
                                         <button class="el-button el-button--default el-button--small is-plain el-active" type="button" id="free-btn" data-type="0">
                                             <span>
-                                                <i class="el-icon-medal-1"></i> 免费试用
+<!--                                                <i class="el-icon-medal-1"></i> -->首次免费试用
                                             </span>
                                         </button>
                                         {% endif %}
@@ -148,14 +188,15 @@
                                         <input type="text" style="display: none" name="type" id="type">
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <button style="width: 35%;" class="el-button el-button--success" id="submit-btn" type="button">提交检测</button>
-                                </div>
+
                             </form>
                         </div>
                         
                     </div>
 					 </div>
+                    <div class="form-group row" style="margin-top: 30px;margin-left: 0px">
+                        <button style="width: 40%;" class="el-button el-button--success" id="submit-btn" type="button">提交检测</button>
+                    </div>
 					<div class="paper-tips">
 					    <div class="title">温馨提示</div>
 					    <div class="content">
