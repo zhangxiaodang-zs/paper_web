@@ -31,8 +31,8 @@ if (App.isAngularJsApp() === false) {
             ]],
             autoHeightEnabled: false,
             initialFrameHeight: 200,
-            serverUrl: webUrl + 'fileUpload',  //此处请求服务器的地址
-            imageFieldName: "uploadFile",
+            serverUrl: 'http://127.0.0.1:9000/java/paper/back/newscontent/content/uploadfile',  //此处请求服务器的地址
+            imageFieldName: "upfile",
             imageUrlPrefix: '',
             imageActionName: 'ajaxUpload',
             imageAllowFiles: [".png", ".jpg", ".jpeg", ".gif", ".bmp"],
