@@ -239,10 +239,10 @@ var NewsContentEdit = function() {
                 if(newsContent.newsimage != oldimage) {
                     var formData = new FormData();
                     var fileInfo = $("#newsurl").get(0).files[0];
-                    formData.append('image', fileInfo);
+                    formData.append('upfile', fileInfo);
                     $.ajax({
                         type: 'POST',
-                        url: webUrl + "new/news/upload/image",
+                        url: "http://127.0.0.1:9000/java/paper/back/newscontent/content/uploadfile",
                         data: formData,
                         dataType: 'json',
                         contentType: false,
