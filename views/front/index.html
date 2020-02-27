@@ -16,7 +16,7 @@
     }
 
     .nav-tabs li {
-        width: 36%
+        width: 22%
     }
 
     .nav-tabs li a {
@@ -65,191 +65,210 @@
         border-color: #a1cf40;
         color: #262626;
     }
+    .item-check{
+        display: none;
+    }
+    .item-search{
+        display: none;
+    }
+    .item_contact{
+        display: none;
+    }
 </style>
 
-<div class="main row" style="margin-top: 10px">
-    <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0"></div>
-    <div class="col-lg-6 col-md-10 col-sm-10 col-xs-12">
+<div class="main" style="margin-top: 0.2rem">
+    <div class="container_center">
         <div class="row">
-            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="width: 20.83333%;">
-                <div class="aside">
-                    <ul class="el-menu">
-                        <li class="el-menu-item is-active" data-url="index">
-                            <span>论文查重</span>
-                            <div class="el-divider"></div>
-                        </li>
-                        <li class="el-menu-item" data-url="download" id="download">
-                            <span>报告下载</span>
-                            <div class="el-divider"></div>
-                        </li>
-                        <li class="el-menu-item" data-url="news">
-                            <span>行业新闻</span>
-                            <div class="el-divider item-check di-n" data-url="news">查重经验</div>
-                        </li>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-2 ">
+                        <div class="aside">
+                            <ul class="el-menu">
+                                <li class="el-menu-item is-active" data-url="index">
+                                    <span>论文查重</span>
+                                    <div class="el-divider"></div>
+                                </li>
+                                <li class="el-menu-item" data-url="download" id="download">
+                                    <span>报告下载</span>
+                                    <div class="el-divider"></div>
+                                </li>
+                                <li class="el-menu-item" data-url="news">
+                                    <span>行业新闻</span>
+                                    <div class="el-divider item-check" data-url="news">查重经验</div>
+                                </li>
 
-                        <li class="el-menu-item" data-url="question">
-                            <span>常见问题</span>
-                            <div class="el-divider item-search di-n" data-url="question">论文查重</div>
-                        </li>
-                        <li class="el-menu-item" data-url="contact">
-                            <span>联系我们</span>
-                            <div class="el-divider item_contact di-n" data-url="contact">企业文化</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11" style="width: 77.5%; padding-left: 0;">
-                <div style="background-color: white">
-                    <div style="padding: 20px 50px">
-                        <div class="form-body">
-                            <form class="paper-form">
-                                <div class="form-group row">
-                                    <label class="control-label input-title"><span class="required"> * </span>题目</label>
-                                    <div class="input-content ">
-                                        <input type="text" class="form-control el-input" placeholder="请输入与文章一致的标题"
-                                               name="title" id="title">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="control-label input-title">作者</label>
-                                    <div class="input-content">
-                                        <input type="text" class="form-control el-input" placeholder="请填写文章的作者名称"
-                                               name="author" id="author">
-                                    </div>
-                                </div>
-                                <ul class="nav nav-tabs" style="margin-left: 60px">
-                                    <li class="active">
-                                        <a href="#tab_1_1" id="paste" data-toggle="tab"> 粘贴文本 </a>
-                                    </li>
-                                    <li>
-                                        <a href="#tab_1_2" id="upload" data-toggle="tab" style="clear:both;"> 上传文档 </a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div class="tab-pane fade active in" id="tab_1_1">
+                                <li class="el-menu-item" data-url="question">
+                                    <span>常见问题</span>
+                                    <div class="el-divider item-search" data-url="question">论文查重</div>
+                                </li>
+                                <li class="el-menu-item" data-url="contact">
+                                    <span>联系我们</span>
+                                    <div class="el-divider item_contact" data-url="contact">企业文化</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div style="background-color: white">
+                            <div style="padding: 20px 50px">
+                                <div class="form-body">
+                                    <form class="paper-form">
                                         <div class="form-group row">
-                                            <label class="control-label input-title"><span class="required"> * </span>内容</label>
+                                            <label class="control-label input-title"><span class="required"> * </span>题目</label>
+                                            <div class="input-content ">
+                                                <input type="text" class="form-control el-input" placeholder="请输入与文章一致的标题"
+                                                       name="title" id="title">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="control-label input-title">作者</label>
                                             <div class="input-content">
+                                                <input type="text" class="form-control el-input" placeholder="请填写文章的作者名称"
+                                                       name="author" id="author">
+                                            </div>
+                                        </div>
+                                        <ul class="nav nav-tabs" style="margin-left: 110px">
+                                            <li class="active">
+                                                <a href="#tab_1_1" id="paste" data-toggle="tab"> 粘贴文本 </a>
+                                            </li>
+                                            <li>
+                                                <a href="#tab_1_2" id="upload" data-toggle="tab" style="clear:both;"> 上传文档 </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade active in" id="tab_1_1">
+                                                <div class="form-group row">
+                                                    <label class="control-label input-title"><span class="required"> * </span>内容</label>
+                                                    <div class="input-content">
                                                 <textarea class="el-textarea"
                                                           placeholder="内容字数1000~10万字。提交内容建议去除封面、目录、附录，仅提交正文"
                                                           name="paste_content" style="min-height: 180px;"
                                                           id="paste_content"></textarea>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="tab_1_2">
-                                        <div class="form-group row" style="margin-bottom: 0">
-                                            <label class="control-label input-title"><span class="required"> * </span>内容</label>
-                                            <div class="input-content">
-                                                <button class="el-button el-button--success el-button--mini is-plain"
-                                                        type="button" id="upload-btn">点击上传
-                                                </button>
-                                                <span class="el-tip">支持doc/docx文件，不超过30M，最多10万字，提交内容建议去除封面、目录、附录，仅提交正文</span>
-                                                <input type="file" style="display: none" id="upload-file"
-                                                       accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                            <div class="tab-pane fade" id="tab_1_2">
+                                                <div class="form-group row" style="margin-bottom: 0">
+                                                    <label class="control-label input-title"><span class="required"> * </span>内容</label>
+                                                    <div class="input-content">
+                                                        <button class="el-button el-button--success el-button--mini is-plain"
+                                                                type="button" id="upload-btn">点击上传
+                                                        </button>
+                                                        <span class="el-tip">支持doc/docx文件，不超过30M，最多10万字，提交内容建议去除封面、目录、附录，仅提交正文</span>
+                                                        <input type="file" style="display: none" id="upload-file"
+                                                               accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="control-label input-title"></label>
+                                                    <div class="input-content">
+                                                <textarea class="el-textarea" placeholder="" name="content"
+                                                          style="min-height: 180px;" id="content" readonly></textarea>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label input-title"></label>
-                                            <div class="input-content">
-                                                <textarea class="el-textarea" placeholder="" name="content"
-                                                          style="min-height: 180px;" id="content" readonly></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="control-label input-title"><span
-                                            class="required"> * </span>检测方式</label>
-                                    <div class="input-content check-type">
-                                        {%if free == 'false' || !free %}
-                                        <button class="el-button el-button--default el-button--small is-plain el-active"
-                                                type="button" id="free-btn" data-type="0">
+                                            <label class="control-label input-title"><span
+                                                    class="required"> * </span>检测方式</label>
+                                            <div class="input-content check-type">
+                                                {%if free == 'false' || !free %}
+                                                <button class="el-button el-button--default el-button--small is-plain el-active"
+                                                        type="button" id="free-btn" data-type="0">
                                             <span>
 <!--                                                <i class="el-icon-medal-1"></i> -->首次免费试用
                                             </span>
-                                        </button>
-                                        {% endif %}
-                                        <div class="btn-group">
-                                            <button class="el-button el-button--default el-button--small is-plain"
-                                                    type="button" id="pay-btn" data-type="1">
-                                                <p>
-                                                    <span>¥ 12.2</span>&nbsp;&nbsp; 3元/包月
-                                                    <!--                                                    <i class="el-icon-collection-tag"></i> 付费包月-->
-                                                </p>
-                                            </button>
-                                            <div class="dropdown-menu paymenu" style="width: 600px; text-align: center">
-                                                <div class="row">
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs4">
-                                                        原价：<span><s>￥30.00/月</s></span></div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs4">
-                                                        折扣：<span>1折（限时打折）</span></div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs4">应付总额：<span
-                                                            class="pay-title" style="color:red">￥3.00/月</span></div>
+                                                </button>
+                                                {% endif %}
+                                                <div class="btn-group">
+                                                    <button class="el-button el-button--default el-button--small is-plain"
+                                                            type="button" id="pay-btn" data-type="1">
+                                                        <p>
+                                                            <span>¥ 12.2</span>&nbsp;&nbsp; 3元/包月
+                                                            <!--                                                    <i class="el-icon-collection-tag"></i> 付费包月-->
+                                                        </p>
+                                                    </button>
+                                                    <div class="dropdown-menu paymenu" style="width: 600px; text-align: center">
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs4">
+                                                                原价：<span><s>￥30.00/月</s></span></div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs4">
+                                                                折扣：<span>1折（限时打折）</span></div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs4">应付总额：<span
+                                                                    class="pay-title" style="color:red">￥3.00/月</span></div>
+                                                        </div>
+                                                        <div class="row" style="margin-top: 10px">
+                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="wpay"
+                                                                 style="cursor: pointer">
+                                                                <img src="/public/front/images/wchat.png"
+                                                                     style="width: 50px; height: 50px">
+                                                                <div class="pay-title">微信支付</div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="alipay"
+                                                                 style="cursor: pointer">
+                                                                <img src="/public/front/images/zfb.png"
+                                                                     style="width: 50px; height: 50px">
+                                                                <div class="pay-title">支付宝支付</div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="cardpay"
+                                                                 style="cursor: pointer">
+                                                                <img src="/public/front/images/card.png"
+                                                                     style="width: 50px; height: 50px">
+                                                                <div class="pay-title">会员卡支付</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="row" style="margin-top: 10px">
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="wpay"
-                                                         style="cursor: pointer">
-                                                        <img src="/public/front/images/wchat.png"
-                                                             style="width: 50px; height: 50px">
-                                                        <div class="pay-title">微信支付</div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="alipay"
-                                                         style="cursor: pointer">
-                                                        <img src="/public/front/images/zfb.png"
-                                                             style="width: 50px; height: 50px">
-                                                        <div class="pay-title">支付宝支付</div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="cardpay"
-                                                         style="cursor: pointer">
-                                                        <img src="/public/front/images/card.png"
-                                                             style="width: 50px; height: 50px">
-                                                        <div class="pay-title">会员卡支付</div>
-                                                    </div>
-                                                </div>
+                                                <!--<button class="el-button el-button--default el-button--small is-plain" type="button" id="pay-btn" data-type="1">
+                                                    <span>
+                                                        <i class="el-icon-collection-tag"></i> 付费包月
+                                                    </span>
+                                                </button>-->
+                                                {%if free == 'false' || !free %}
+                                                <span class="el-tip" id="free-tips">包月2折优惠活动仅剩3天</span>
+                                                {% endif %}
+                                                <input type="text" style="display: none" name="type" id="type">
                                             </div>
                                         </div>
-                                        <!--<button class="el-button el-button--default el-button--small is-plain" type="button" id="pay-btn" data-type="1">
-                                            <span>
-                                                <i class="el-icon-collection-tag"></i> 付费包月
-                                            </span>
-                                        </button>-->
-                                        {%if free == 'false' || !free %}
-                                        <span class="el-tip" id="free-tips">包月2折优惠活动仅剩3天</span>
-                                        {% endif %}
-                                        <input type="text" style="display: none" name="type" id="type">
-                                    </div>
+
+                                    </form>
                                 </div>
 
-                            </form>
+                            </div>
                         </div>
+                        <div class="form-group row" style="margin-top: 30px;margin-left: 0px">
+                            <button style="width: 26%;" class="el-button el-button--success" id="submit-btn" type="button">
+                                提交检测
+                            </button>
+                        </div>
+                        <div class="paper-tips">
+                            <div class="title">温馨提示</div>
+                            <div class="content">
+                                系统在检测时会分析论文的前后文关系，所以请您提交论文的全部内容，如果是非全文的检测将不能保证检测的准确性。<br>
+                                被系统自动识别出来的非正文部分（如目录，标题，公式，图表，参考文献等）不参与检测，检测字数一般略小于论文字数
+                            </div>
+                            <div class="title">报告展示</div>
+                            <ul class="clearfix">
+                                <li>简洁报告</li>
+                                <li>去除本人已发表文献报告</li>
+                                <li>全文标明引文报告</li>
+                                <li>全文对照报告</li>
+                            </ul>
 
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row" style="margin-top: 30px;margin-left: 0px">
-                    <button style="width: 40%;" class="el-button el-button--success" id="submit-btn" type="button">
-                        提交检测
-                    </button>
-                </div>
-                <div class="paper-tips">
-                    <div class="title">温馨提示</div>
-                    <div class="content">
-                        系统在检测时会分析论文的前后文关系，所以请您提交论文的全部内容，如果是非全文的检测将不能保证检测的准确性。<br>
-                        被系统自动识别出来的非正文部分（如目录，标题，公式，图表，参考文献等）不参与检测，检测字数一般略小于论文字数
-                    </div>
-                    <div class="title">报告展示</div>
-                    <ul class="clearfix">
-                        <li>简洁报告</li>
-                        <li>去除本人已发表文献报告</li>
-                        <li>全文标明引文报告</li>
-                        <li>全文对照报告</li>
-                    </ul>
-
                 </div>
             </div>
         </div>
     </div>
+<!--    <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0"></div>-->
+
 </div>
+
+
+
+
+
 <!--处理中-->
 <div class="modal fade" id="loading" role="basic" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog">

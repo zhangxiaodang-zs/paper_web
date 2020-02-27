@@ -147,18 +147,18 @@ function btnEnable(id){
 $(".el-menu-item").on("click", function(){
     var url = $(this).data("url");
     if(url=='news'){
-        $(".item-check").removeClass('di-n');
+        $(".item-check").fadeIn();
         $(".el-menu-item").eq(2).addClass("is-active").siblings().removeClass('is-active');
         return false;
     }
     if(url=='question'){
-        $(".item-search").removeClass('di-n');
+        $(".item-search").fadeIn();
         $(".el-menu-item").eq(3).addClass("is-active").siblings().removeClass('is-active');
         return false;
     }
     if(url=='contact'){
-       $(".item_contact").removeClass('di-n');
-      $(".el-menu-item").eq(4).addClass("is-active").siblings().removeClass('is-active');
+        $(".item_contact").fadeIn();
+       $(".el-menu-item").eq(4).addClass("is-active").siblings().removeClass('is-active');
        return false;
     }
     var form = document.createElement('form');
@@ -264,3 +264,22 @@ function vipTimeDisplay(){
 
 //新闻列表接口
 
+/**————————————————————————————————适配——————————————————————————————————————**/
+(function (doc, win) {
+    var docEl = doc.documentElement,
+        // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            docEl.style.fontSize = 100*(clientWidth / 1920) + 'px';
+        };
+
+    recalc();
+    //判断是否支持监听事件 ，不支持则停止
+    if (!doc.addEventListener) return;
+    //注册翻转事件
+    win.addEventListener(resizeEvt, recalc, false);
+
+})(document, window);
