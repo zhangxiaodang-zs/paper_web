@@ -69,16 +69,16 @@ const IMAGERESULTEDIT = 44;
 const NEWSADD = 45;
 const NEWSEDIT = 46;
 const NEWSDELETE = 47;
-const COUNTYADD = 48;
+const QUESTIONEDIT = 48;
 const COUNTYDELETE = 49;
 const REGDELETE = 50;
 const REGADD = 51;
 const REGEDIT = 52;
-const COUNTYEDIT = 53;
-const COUNTEDIT = 54;
-const COUNTADD = 55;
-const COUNTDELETE = 49;
-const COUNTKJYPE = 50;
+const QUESTIONTYPEEDIT = 53;
+const QUESTIONTYPEADD = 54;
+const QUESTIONTYPEDELETE = 55;
+const QUESTIONDELETE = 49;
+const QUESTIONADD = 50;
 
 
 const TableLanguage = {
@@ -133,6 +133,12 @@ var userMenuList = {
             "menulist":[
                 {"menuid":"newstype","menutype":0,sort:"0", power:"1", "menuname":"新闻分类","url":"newstype", menuicon:"icon-settings"},
                 {"menuid":"newscontent","menutype":0,sort:"1", power:"1", "menuname":"新闻内容","url":"newscontent", menuicon:"icon-note"},
+            ]
+        },
+        {"menuid":"news","menutype":1,sort:"0", power:"1", "menuname":"常见问题","url":"", menuicon:" icon-question",
+            "menulist":[
+                {"menuid":"questiontype","menutype":0,sort:"0", power:"1", "menuname":"问题分类","url":"questiontype", menuicon:"icon-settings"},
+                {"menuid":"questioncontent","menutype":0,sort:"1", power:"1", "menuname":"问题内容","url":"questioncontent", menuicon:"icon-note"},
             ]
         }
     ]

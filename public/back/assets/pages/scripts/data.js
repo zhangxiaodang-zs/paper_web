@@ -292,11 +292,11 @@ function newsContentAdd(data){
         dataType: "json",        //返回数据形式为json
         success: function (result) {
             console.info("newsContentAdd:" + JSON.stringify(result));
-            newsContentInfoEditEnd(true, result, NEWSTYPEADD);
+            newsContentInfoEditEnd(true, result, NEWSADD);
         },
         error: function (errorMsg) {
             console.info("newsContentAdd-error:" + JSON.stringify(errorMsg));
-            newsContentInfoEditEnd(false, "", NEWSTYPEADD);
+            newsContentInfoEditEnd(false, "", NEWSADD);
         }
     });
 }
@@ -313,11 +313,11 @@ function newsContentEdit(data){
         dataType: "json",        //返回数据形式为json
         success: function (result) {
             console.info("newsContentEdit:" + JSON.stringify(result));
-            newsContentInfoEditEnd(true, result, NEWSTYPEEDIT);
+            newsContentInfoEditEnd(true, result, NEWSEDIT);
         },
         error: function (errorMsg) {
             console.info("newsContentEdit-error:" + JSON.stringify(errorMsg));
-            newsContentInfoEditEnd(false, "", NEWSTYPEEDIT);
+            newsContentInfoEditEnd(false, "", NEWSEDIT);
         }
     });
 }
@@ -334,11 +334,11 @@ function newsContentDelete(data){
         dataType: "json",        //返回数据形式为json
         success: function (result) {
             console.info("newsContentDelete:" + JSON.stringify(result));
-            newsContentInfoEditEnd(true, result, NEWSTYPEDELETE);
+            newsContentInfoEditEnd(true, result, NEWSDELETE);
         },
         error: function (errorMsg) {
             console.info("newsContentDelete-error:" + JSON.stringify(errorMsg));
-            newsContentInfoEditEnd(false, "", NEWSTYPEDELETE);
+            newsContentInfoEditEnd(false, "", NEWSDELETE);
         }
     });
 }
@@ -359,6 +359,200 @@ function getNewsContent(data,callback){
         error:function(errorMsg){
             console.info("getNewsContent-error:"+ JSON.stringify(errorMsg));
             getNewsContentEnd(false,"",callback);
+        }
+    });
+}
+
+//问题类型获取
+function questionTypeDataGet(data, callback){
+    App.blockUI({target: '#lay-out',boxed: true});
+    if(data == null){
+        data = {questiontype: "", currentpage: "", pagesize: "", startindex: "0", draw: 1}
+    }
+    $.ajax({
+        type: "post",
+        contentType: "application/json",
+        async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        url: "http://127.0.0.1:9000/java/paper/back/question/type/query",    //请求发送到TestServlet处
+        data: sendMessageEdit(DEFAULT, data),
+        dataType: "json",        //返回数据形式为json
+        success: function (result) {
+            console.info("questionTypeDataGet:" + JSON.stringify(result));
+            getQuestionTypeDataEnd(true, result, callback);
+        },
+        error: function (errorMsg) {
+            console.info("questionTypeDataGet-error:" + JSON.stringify(errorMsg));
+            getQuestionTypeDataEnd(false, "", callback);
+        }
+    });
+}
+
+//问题类型增加
+function questionTypeAdd(data){
+    App.blockUI({target:'#lay-out',boxed: true});
+    $.ajax({
+        type: "post",
+        contentType: "application/json",
+        async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        url: "http://127.0.0.1:9000/java/paper/back/question/type/add",    //请求发送到TestServlet处
+        data: sendMessageEdit(DEFAULT, data),
+        dataType: "json",        //返回数据形式为json
+        success: function (result) {
+            console.info("questionTypeAdd:" + JSON.stringify(result));
+            questionTypeInfoEditEnd(true, result, QUESTIONTYPEADD);
+        },
+        error: function (errorMsg) {
+            console.info("questionTypeAdd-error:" + JSON.stringify(errorMsg));
+            questionTypeInfoEditEnd(false, "", QUESTIONTYPEADD);
+        }
+    });
+}
+
+//问题类型编辑
+function questionTypeEdit(data){
+    App.blockUI({target:'#lay-out',boxed: true});
+    $.ajax({
+        type: "post",
+        contentType: "application/json",
+        async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        url: "http://127.0.0.1:9000/java/paper/back/question/type/edit",    //请求发送到TestServlet处
+        data: sendMessageEdit(DEFAULT, data),
+        dataType: "json",        //返回数据形式为json
+        success: function (result) {
+            console.info("questionTypeEdit:" + JSON.stringify(result));
+            questionTypeInfoEditEnd(true, result, QUESTIONTYPEEDIT);
+        },
+        error: function (errorMsg) {
+            console.info("questionTypeEdit-error:" + JSON.stringify(errorMsg));
+            questionTypeInfoEditEnd(false, "", QUESTIONTYPEEDIT);
+        }
+    });
+}
+
+//问题类型删除
+function questionTypeDelete(data){
+    App.blockUI({target:'#lay-out',boxed: true});
+    $.ajax({
+        type: "post",
+        contentType: "application/json",
+        async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        url: "http://127.0.0.1:9000/java/paper/back/question/type/delete",    //请求发送到TestServlet处
+        data: sendMessageEdit(DEFAULT, data),
+        dataType: "json",        //返回数据形式为json
+        success: function (result) {
+            console.info("questionTypeDelete:" + JSON.stringify(result));
+            questionTypeInfoEditEnd(true, result, QUESTIONTYPEDELETE);
+        },
+        error: function (errorMsg) {
+            console.info("questionTypeDelete-error:" + JSON.stringify(errorMsg));
+            questionTypeInfoEditEnd(false, "", QUESTIONTYPEDELETE);
+        }
+    });
+}
+
+//问题内容获取
+function questionContentDataGet(data, callback){
+    App.blockUI({target: '#lay-out',boxed: true});
+    if(data == null){
+        data = {questiontype: "", currentpage: "", pagesize: "", startindex: "0", draw: 1}
+    }
+    $.ajax({
+        type: "post",
+        contentType: "application/json",
+        async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        url: webUrl + "java/question/content/query",    //请求发送到TestServlet处
+        data: sendMessageEdit(DEFAULT, data),
+        dataType: "json",        //返回数据形式为json
+        success: function (result) {
+            console.info("questionContentDataGet:" + JSON.stringify(result));
+            getQuestionContentDataEnd(true, result, callback);
+        },
+        error: function (errorMsg) {
+            console.info("questionContentDataGet-error:" + JSON.stringify(errorMsg));
+            getQuestionContentDataEnd(false, "", callback);
+        }
+    });
+}
+
+//问题增加
+function questionContentAdd(data){
+    App.blockUI({target:'#lay-out',boxed: true});
+    $.ajax({
+        type: "post",
+        contentType: "application/json",
+        async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        url: webUrl + "java/question/content/add",    //请求发送到TestServlet处
+        data: sendMessageEdit(DEFAULT, data),
+        dataType: "json",        //返回数据形式为json
+        success: function (result) {
+            console.info("questionContentAdd:" + JSON.stringify(result));
+            questionContentInfoEditEnd(true, result, QUESTIONADD);
+        },
+        error: function (errorMsg) {
+            console.info("questionContentAdd-error:" + JSON.stringify(errorMsg));
+            questionContentInfoEditEnd(false, "", QUESTIONADD);
+        }
+    });
+}
+
+//问题编辑
+function questionContentEdit(data){
+    App.blockUI({target:'#lay-out',boxed: true});
+    $.ajax({
+        type: "post",
+        contentType: "application/json",
+        async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        url: webUrl + "java/question/content/edit",    //请求发送到TestServlet处
+        data: sendMessageEdit(DEFAULT, data),
+        dataType: "json",        //返回数据形式为json
+        success: function (result) {
+            console.info("questionContentEdit:" + JSON.stringify(result));
+            questionContentInfoEditEnd(true, result, QUESTIONEDIT);
+        },
+        error: function (errorMsg) {
+            console.info("questionContentEdit-error:" + JSON.stringify(errorMsg));
+            questionContentInfoEditEnd(false, "", QUESTIONEDIT);
+        }
+    });
+}
+
+//问题删除
+function questionContentDelete(data){
+    App.blockUI({target:'#lay-out',boxed: true});
+    $.ajax({
+        type: "post",
+        contentType: "application/json",
+        async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        url: webUrl + "java/question/content/delete",    //请求发送到TestServlet处
+        data: sendMessageEdit(DEFAULT, data),
+        dataType: "json",        //返回数据形式为json
+        success: function (result) {
+            console.info("questionContentDelete:" + JSON.stringify(result));
+            questionContentInfoEditEnd(true, result, NEWSTYPEDELETE);
+        },
+        error: function (errorMsg) {
+            console.info("questionContentDelete-error:" + JSON.stringify(errorMsg));
+            questionContentInfoEditEnd(false, "", QUESTIONDELETE);
+        }
+    });
+}
+
+//获取问题详情
+function getQuestionContent(data,callback){
+    $.ajax({
+        type:"post",
+        contentType:"application/json",
+        async:true,        //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        url:webUrl + "java/question/content/detail",  //请求发送到TestServlet处
+        data:sendMessageEdit(DEFAULT, data),
+        dataType:"json",      //返回数据形式为json
+        success:function(result){
+            console.info("getQuestionContent:"+JSON.stringify(result));
+            getQuestionContentEnd(true,result,callback);
+        },
+        error:function(errorMsg){
+            console.info("getQuestionContent-error:"+ JSON.stringify(errorMsg));
+            getQuestionContentEnd(false,"",callback);
         }
     });
 }

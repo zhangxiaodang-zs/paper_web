@@ -4,24 +4,11 @@
 /**
  * Created by Administrator on 2019/2/19.
  */
-var newsContentList = [];
+var questionContentList = [];
 if (App.isAngularJsApp() === false) {
     jQuery(document).ready(function() {
         //百度富文本编辑器初始化
         UE.getEditor("content", {
-            /*toolbars: [[
-                'fullscreen', '|', 'undo', 'redo', '|',
-                'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
-                'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
-                'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
-                'directionalityltr', 'directionalityrtl', 'indent', '|',
-                'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
-                'link', 'unlink', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
-                'insertimage', 'emotion', 'insertvideo', 'music', 'map', 'template', 'background', '|',
-                'horizontal', 'date', 'time', 'spechars', '|',
-                'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
-                'searchreplace'
-            ]],*/
             toolbars: [[
                 'undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikethrough', '|', 'superscript', 'subscript', '|', 'forecolor', 'backcolor', '|', 'removeformat', '|',
                 'insertorderedlist', 'insertunorderedlist', '|', 'selectall', 'cleardoc', 'paragraph', '|', 'fontfamily', 'fontsize' ,
@@ -29,6 +16,7 @@ if (App.isAngularJsApp() === false) {
                 'link', 'unlink', '|', 'insertimage', 'emotion', '|', 'map',
                 '|', 'horizontal', 'preview', 'drafts', 'formula'
             ]],
+
             autoHeightEnabled: false,
             initialFrameHeight: 200,
             serverUrl: webUrl + 'fileUpload',  //此处请求服务器的地址
@@ -38,15 +26,15 @@ if (App.isAngularJsApp() === false) {
             imageAllowFiles: [".png", ".jpg", ".jpeg", ".gif", ".bmp"],
             catcherUrlPrefix: '',
         });
-        newsTypeDataGet(null, null);
-        NewsContentTable.init();
-        NewsContentEdit.init();
+        questionTypeDataGet(null, null);
+        QuestionContentTable.init();
+        QuestionContentEdit.init();
     });
 }
 
-var NewsContentTable = function () {
+var QuestionContentTable = function () {
     var initTable = function () {
-        var table = $('#news_table');
+        var table = $('#question_table');
         pageLengthInit(table);
         table.dataTable({
             "language": TableLanguage,
@@ -63,21 +51,20 @@ var NewsContentTable = function () {
             "ajax":function (data, callback, settings) {
                 var formData = $(".inquiry-form").getFormData();
                 var da = {
-                    newstype: formData.newstype,
+                    questiontype: formData.questiontype,
                     currentpage: (data.start / data.length) + 1,
                     pagesize: data.length == -1 ? "": data.length,
                     startindex: data.start,
                     draw: data.draw
                 };
-                newsContentDataGet(da, callback);
+                questionContentDataGet(da, callback);
             },
             columns: [//返回的json数据在这里填充，注意一定要与上面的<th>数量对应，否则排版出现扭曲
                 { "data": null},
                 { "data": null},
-                { "data": "newsid", visible: false },
-                { "data": "newstype" },
+                { "data": "questionid", visible: false },
+                { "data": "questiontype" },
                 { "data": "title" },
-                { "data": "newsurl" },
                 { "data": "summary" },
                 { "data": "time" },
                 { "data": "read" },
@@ -102,25 +89,18 @@ var NewsContentTable = function () {
                     "targets": [5],
                     "data": null,
                     "render": function (data, type, row, meta) {
-                        return "<img src='" + data + "' style='width: 30px; height:20px'>";
+                        return "<div class='toLong'>" + data + "</div>";
                     }
                 },
                 {
                     "targets": [6],
                     "data": null,
                     "render": function (data, type, row, meta) {
-                        return "<div class='toLong'>" + data + "</div>";
-                    }
-                },
-                {
-                    "targets": [7],
-                    "data": null,
-                    "render": function (data, type, row, meta) {
                         return dateTimeFormat(data, "/");
                     }
                 },
                 {
-                    "targets": [10],
+                    "targets": [9],
                     "data": null,
                     "render": function (data, type, row, meta) {
                         return '<a href="javascript:;" id="op_edit">编辑</a>'
@@ -161,7 +141,7 @@ var NewsContentTable = function () {
     };
 }();
 
-var NewsContentEdit = function() {
+var QuestionContentEdit = function() {
     var handleRegister = function() {
         var validator = $('.register-form').validate({
             errorElement: 'span', //default input error message container
@@ -169,13 +149,10 @@ var NewsContentEdit = function() {
             focusInvalid: false, // do not focus the last invalid input
             ignore: "",
             rules: {
-                newstypeid: {
+                questiontypeid: {
                     required: true
                 },
                 title: {
-                    required: true
-                },
-                newsimage: {
                     required: true
                 },
                 summary: {
@@ -183,17 +160,14 @@ var NewsContentEdit = function() {
                 }
             },
             messages: {
-                newstypeid: {
-                    required: "新闻类型必须输入"
+                questiontypeid: {
+                    required: "问题类型必须输入"
                 },
                 title: {
-                    required: "新闻标题必须输入"
-                },
-                newsimage: {
-                    required: "缩略图必须上传"
+                    required: "问题标题必须输入"
                 },
                 summary: {
-                    required: "新闻摘要必须输入"
+                    required: "回答摘要必须输入"
                 }
             },
 
@@ -226,86 +200,50 @@ var NewsContentEdit = function() {
         $('#register-btn').click(function() {
             btnDisable($('#register-btn'));
             if ($('.register-form').validate().form()) {
-                var newsContent = $('.register-form').getFormData();
-                newsContent.content = UE.getEditor('content').getContent();
-                if(newsContent.content == ""){
-                    alertDialog("新闻内容必须输入！");
+                var questionContent = $('.register-form').getFormData();
+                questionContent.content = UE.getEditor('content').getContent();
+                if(questionContent.content == ""){
+                    alertDialog("回答内容必须输入！");
                     return;
                 }
-                ////先上传LOGO
-                //如果头像发生了变化，先上传头像
-                //获取原来的头像
-                var oldimage = $("input[name=oldimage]").val();
-                if(newsContent.newsimage != oldimage) {
-                    var formData = new FormData();
-                    var fileInfo = $("#newsurl").get(0).files[0];
-                    formData.append('image', fileInfo);
-                    $.ajax({
-                        type: 'POST',
-                        url: webUrl + "new/news/upload/image",
-                        data: formData,
-                        dataType: 'json',
-                        contentType: false,
-                        processData: false,
-                        success: function (result) {
-                            if (result.code == SUCCESS) {
-                                newsContent.newsurl = result.newsurl;
-                                if($("input[name=edittype]").val() == NEWSADD){
-                                    newsContentAdd(newsContent);
-                                }else{
-                                    newsContentEdit(newsContent);
-                                }
-                            } else {
-                                alertDialog("上传新闻缩略图片失败！" + result.message);
-                            }
-                        },
-                        error: function () {
-                            alertDialog("上传新闻缩略图片失败！");
-                        }
-                    });
-                }else {
-                    if($("input[name=edittype]").val() == NEWSADD){
-                        newsContentAdd(newsContent);
-                    }else{
-                        newsContentEdit(newsContent);
-                    }
+                if($("input[name=edittype]").val() == QUESTIONADD){
+                    questionContentAdd(questionContent);
+                }else{
+                    questionContentEdit(questionContent);
                 }
             }
         });
-        //新增新闻
+        //新增问题
         $('#op_add').click(function() {
             validator.resetForm();
             $(".register-form").find(".has-error").removeClass("has-error");
-            $(".modal-title").text("新增新闻");
+            $(".modal-title").text("新增问题");
             $(":input",".register-form").not(":button,:reset,:submit,:radio").val("")
                 .removeAttr("checked")
                 .removeAttr("selected");
-            //清空图片
-            $("#newsurl").siblings("img").attr("src", "/public/back/assets/pages/img/default.jpg");
-            $("#newsurl").siblings("input[name=newsimage], input[name=oldimage]").val("");
             //清空文本框
             UE.getEditor('content').setContent("", false);
 
-            $("input[name=edittype]").val(NEWSADD);
-            $('#edit_news').modal('show');
+            $("input[name=edittype]").val(QUESTIONADD);
+            $('#edit_question').modal('show');
         });
-        //编辑新闻
-        $("#news_table").on('click', '#op_edit', function (e) {
+        //编辑问题
+        $("#question_table").on('click', '#op_edit', function (e) {
             e.preventDefault();
             validator.resetForm();
             $(".register-form").find(".has-error").removeClass("has-error");
-            $(".modal-title").text("编辑新闻");
+            $(".modal-title").text("编辑问题");
             var exclude = [""];
             var row = $(this).parents('tr')[0];     //通过获取该td所在的tr，即td的父级元素，取出第一列序号元素
-            var newsid = $("#news_table").dataTable().fnGetData(row).newsid;
-            var newsContent = new Object();
-            for(var i=0; i < newsContentList.length; i++){
-                if(newsid == newsContentList[i].newsid){
-                    newsContent = newsContentList[i];
+            var questionid = $("#question_table").dataTable().fnGetData(row).questionid;
+            var questionContent = new Object();
+            for(var i=0; i < questionContentList.length; i++){
+                if(questionid == questionContentList[i].questionid){
+                    questionContent = questionContentList[i];
                 }
             }
-            var data = {newsid: newsid};
-            getNewsContent(data, newsContent);
+            var data = {questionid: questionid};
+            getQuestionContent(data, questionContent);
         });
     };
 
@@ -316,58 +254,58 @@ var NewsContentEdit = function() {
     };
 }();
 
-var NewsContentDelete = function() {
+var QuestionContentDelete = function() {
     $('#op_del').click(function() {
         var len = $(".checkboxes:checked").length;
         if(len < 1){
             alertDialog("至少选中一项！");
         }else{
             var para = 1;
-            confirmDialog("数据删除后将不可恢复，您确定要删除吗？", NewsContentDelete.deleteNewsContent, para)
+            confirmDialog("数据删除后将不可恢复，您确定要删除吗？", QuestionContentDelete.deleteQuestionContent, para)
         }
     });
     return{
-        deleteNewsContent: function(){
-            var newsContentList = {newsidlist:[]};
+        deleteQuestionContent: function(){
+            var questionContentList = {questionidlist:[]};
             $(".checkboxes:checked").parents("td").each(function () {
                 var row = $(this).parents('tr')[0];     //通过获取该td所在的tr，即td的父级元素，取出第一列序号元素
-                var newsContentId = $("#news_table").dataTable().fnGetData(row).newsid;
-                newsContentList.newsidlist.push(newsContentId);
+                var questionContentId = $("#question_table").dataTable().fnGetData(row).questionid;
+                questionContentList.questionidlist.push(questionContentId);
             });
-            newsContentDelete(newsContentList);
+            questionContentDelete(questionContentList);
         }
     }
 }();
 
-function getNewsContentDataEnd(flg, result, callback){
+function getQuestionContentDataEnd(flg, result, callback){
     App.unblockUI('#lay-out');
     if(flg){
         if (result && result.code == SUCCESS) {
             var res = result;
-            newsContentList = res.newslist;
-            tableDataSet(res.draw, res.totalcount, res.totalcount, res.newslist, callback);
+            questionContentList = res.questionlist;
+            tableDataSet(res.draw, res.totalcount, res.totalcount, res.questionlist, callback);
         }else{
             tableDataSet(0, 0, 0, [], callback);
             alertDialog(result.message);
         }
     }else{
         tableDataSet(0, 0, 0, [], callback);
-        alertDialog("新闻信息获取失败！");
+        alertDialog("问题信息获取失败！");
     }
 }
 
-function newsContentInfoEditEnd(flg, result, type){
+function questionContentInfoEditEnd(flg, result, type){
     var res = "失败";
     var text = "";
     var alert = "";
     switch (type){
-        case NEWSADD:
+        case QUESTIONADD:
             text = "新增";
             break;
-        case NEWSEDIT:
+        case QUESTIONEDIT:
             text = "编辑";
             break;
-        case NEWSDELETE:
+        case QUESTIONDELETE:
             text = "删除";
             break;
     }
@@ -377,88 +315,60 @@ function newsContentInfoEditEnd(flg, result, type){
         }
         if (result && result.code == SUCCESS) {
             res = "成功";
-            NewsContentTable.init();
-            $('#edit_news_type').modal('hide');
+            QuestionContentTable.init();
+            $('#edit_question_type').modal('hide');
         }
     }
-    if(alert == "") alert = text + "新闻" + res + "！";
+    if(alert == "") alert = text + "问题" + res + "！";
     App.unblockUI('#lay-out');
     alertDialog(alert);
 }
 
 $("#op_inquiry").on("click", function(){
     //用户查询
-    NewsContentTable.init();
+    QuestionContentTable.init();
 });
 
-$("#newsurl").change(function(){
-    var file = $(this).get(0).files[0];
-    var inputObj = $(this).siblings("input[name=newsimage]");
-    var imgObj = $(this).siblings("img");
-    inputObj.val(file);
-    if(file == undefined){
-        imgObj.attr("src", "/public/back/assets/pages/img/default.jpg");
-        inputObj.val("");
-        return;
-    }
-    var myimg = URL.createObjectURL(file);
-    var img = new Image();
-    img.src = myimg;
-    img.onload = function(){
-        if(img.width === 300 && img.height === 200){
-            imgObj.attr("src", myimg);
-        }else{
-            imgObj.attr("src", "/public/back/assets/pages/img/default.jpg");
-            inputObj.val("");
-            $("#newsurl").val("");
-            alertDialog("只能上传尺寸为300x200的图片！");
-        }
-    };
-});
-
-function getNewsContentEnd(flg, result, temp){
+function getQuestionContentEnd(flg, result, temp){
     if(flg){
         if (result && result.code == SUCCESS) {
-            var newsContent = result;
-            newsContent.newsid = temp.newsid;
+            var questionContent = result;
+            questionContent.questionid = temp.questionid;
             var exclude = ["content"];
-            var options = { jsonValue: newsContent, exclude:exclude, isDebug: false};
+            var options = { jsonValue: questionContent, exclude:exclude, isDebug: false};
             $(".register-form").initForm(options);
-            //LOGO框赋值
-            $("#newsurl").siblings("img").attr("src", temp.newsurl);
-            $("#newsurl").siblings("input[name=newsimage], input[name=oldimage]").val(temp.newsurl);
             //文本框赋值
-            UE.getEditor('content').setContent(newsContent.content, false);
-            $("input[name=edittype]").val(NEWSEDIT);
-            $('#edit_news').modal('show');
+            UE.getEditor('content').setContent(questionContent.content, false);
+            $("input[name=edittype]").val(QUESTIONEDIT);
+            $('#edit_question').modal('show');
         }else{
-            alertDialog("获取新闻内容失败！");
+            alertDialog("获取问题内容失败！");
         }
     }else{
-        alertDialog("获取新闻内容失败！");
+        alertDialog("获取问题内容失败！");
     }
 }
 
-function getNewsTypeDataEnd(flg, result, callback) {
+function getQuestionTypeDataEnd(flg, result, callback) {
     App.unblockUI('#lay-out');
     /*flg = true;
-    result = {code:200, message:"", newstypelist:[
-        {newstypeid:"1", newstype:"查重经验",time:"20191220111111"},
-        {newstypeid:"2", newstype:"论文修改",time:"20191220111111"},
-        {newstypeid:"3", newstype:"论文协作",time:"20191220111111"},
+    result = {code:200, message:"", questiontypelist:[
+        {questiontypeid:"1", questiontype:"查重经验",time:"20191220111111"},
+        {questiontypeid:"2", questiontype:"论文修改",time:"20191220111111"},
+        {questiontypeid:"3", questiontype:"论文协作",time:"20191220111111"},
     ]};*/
     if(flg){
         if (result && result.code == SUCCESS) {
-            var newstypelist = result.newstypelist;
-            newsTypeSelectBuild($("#newstype, #newstypeadd"), newstypelist);
+            var questiontypelist = result.questiontypelist;
+            questionTypeSelectBuild($("#questiontype, #questiontypeadd"), questiontypelist);
         }
     }
 }
 
-function newsTypeSelectBuild(id, list){
+function questionTypeSelectBuild(id, list){
     id.empty();
     for (var i = list.length - 1;  i >=0 ; i--) {
-        id.prepend('<option value="' + list[i].newstypeid + '">' + list[i].newstype + '</option>');
+        id.prepend('<option value="' + list[i].questiontypeid + '">' + list[i].questiontype + '</option>');
     }
     id.prepend('<option value="" selected>请选择</option>');
 }
