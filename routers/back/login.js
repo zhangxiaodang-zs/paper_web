@@ -214,7 +214,7 @@ router.post('/money',function(req,res,next){
         res.redirect('/back/login');
     }
 });
-//资金信息
+//新闻类型
 router.post('/newstype',function(req,res,next){
     logger.info(req.url);
     var uname = req.body.username;
@@ -227,7 +227,7 @@ router.post('/newstype',function(req,res,next){
         res.redirect('/back/login');
     }
 });
-//资金信息
+//新闻内容
 router.post('/newscontent',function(req,res,next){
     logger.info(req.url);
     var uname = req.body.username;
@@ -240,5 +240,30 @@ router.post('/newscontent',function(req,res,next){
         res.redirect('/back/login');
     }
 });
-
+//问题类型
+router.post('/questiontype',function(req,res,next){
+    logger.info(req.url);
+    var uname = req.body.username;
+    if(req.session["ywtUname" + uname]) {  //判断session 状态，如果有效，则返回主页，否则转到登录页面
+        res.render('back/question/type', {
+            menu: req.url.substr(1),
+            loginsucc: req.session["ywtLogin" + uname]
+        });
+    }else{
+        res.redirect('/back/login');
+    }
+});
+//问题内容
+router.post('/questioncontent',function(req,res,next){
+    logger.info(req.url);
+    var uname = req.body.username;
+    if(req.session["ywtUname" + uname]) {  //判断session 状态，如果有效，则返回主页，否则转到登录页面
+        res.render('back/question/content', {
+            menu: req.url.substr(1),
+            loginsucc: req.session["ywtLogin" + uname]
+        });
+    }else{
+        res.redirect('/back/login');
+    }
+});
 module.exports = router;
