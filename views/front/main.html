@@ -108,12 +108,15 @@
 </head>
 <body>
 <div class="paper-container">
-    <div class="top row">
-        <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0"></div>
-        <div class="col-lg-6 col-md-10 col-sm-10 col-xs-12" style="margin: 10px 0 10px;">
+<!-- 网站顶部-->
+    <div class="top">
+        <div class="row">
+        <div class="container_center">
             <div class="biye-logo">
                 <div>
-                    <img src="/public/front/images/logo.png">
+                    <a href="http://www.biye.com.cn/" target="_blank">
+                        <img src="/public/front/images/logo.png">
+                    </a>
                 </div>
                 <div>
                     {%if !openid %}
@@ -135,13 +138,13 @@
 
                 </div>
             </div>
-
         </div>
     </div>
-    <div style="background-color: #F5F5F5; margin-top: -8px; padding-top: 10px">
+    </div>
+    <div style="background-color: #F5F5F5; margin-top: -8px; padding-top: 15px">
+        <!-- 近期订单-->
         <div class="title row" style="margin-bottom: 10px">
-            <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0"></div>
-            <div class="col-lg-6 col-md-10 col-sm-10 col-xs-12">
+            <div class="container_center">
                 <div class="recent-order">
                     <div>近期订单</div>
                     <div class="roll-div">
@@ -151,131 +154,124 @@
                 </div>
             </div>
         </div>
-
-        <div class="title row">
-            <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0"></div>
-            <div class="col-lg-6 col-md-10 col-sm-10 col-xs-12" style="z-index: 1">
-                <div class="banner">
-                    <div class="head-brand">
-                        <div class="brand-img">
-                            <img src="../../public/front/images/sb.png" alt="">
-                            <p>品牌商标</p>
+        <!-- banner-->
+        <div class="title">
+            <div class="container_center">
+                <div class="row">
+                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="z-index: 1">
+                    <div class="banner">
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                        <div class="col-lg-10">
+                            <div class="head-brand">
+                                <div class="brand-img">
+                                    <img src="../../public/front/images/sb.png" alt="">
+                                    <p>品牌商标</p>
+                                    <div class="ban_hover_img1 imgg"></div>
+                                </div>
+                                <div class="brand-img">
+                                    <img src="../../public/front/images/rz.png" alt="">
+                                    <p>品牌软著</p>
+                                    <div class="ban_hover_img2 imgg"></div>
+                                </div>
+                                <div class="brand-img">
+                                    <img src="../../public/front/images/tm.png" alt="">
+                                    <p>天猫品牌</p>
+                                    <div class="ban_hover_img3 imgg"></div>
+                                </div>
+                                <div class="brand-img">
+                                    <img src="../../public/front/images/mj.png" alt="">
+                                    <p>修改秘籍</p>
+                                    <div class="ban_hover_img4 imgg"></div>
+                                </div>
+                                <div class="brand-img">
+                                    <img src="../../public/front/images/yhq.png" alt="">
+                                    <p>领取优惠券</p>
+                                    <div class="ban_hover_img5 imgg"></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="brand-img">
-                            <img src="../../public/front/images/rz.png" alt="">
-                            <p>品牌软著</p>
-                        </div>
-                        <div class="brand-img">
-                            <img src="../../public/front/images/tm.png" alt="">
-                            <p>天猫品牌</p>
-                        </div>
-                        <div class="brand-img">
-                            <img src="../../public/front/images/mj.png" alt="">
-                            <p>修改秘籍</p>
-                        </div>
-                        <div class="brand-img">
-                            <img src="../../public/front/images/yhq.png" alt="">
-                            <p>领取优惠券</p>
+                        <div class="col-lg-1">
+                            <div class="head-visit">
+                                <div>
+                                    <p data-counter="counterup" data-value="{{ visit }}">{{ visit }}</p>
+                                    <p>访问量</p>
+                                </div>
+                                <div style="margin-top: 20px;">
+                                    <p data-counter="counterup" data-value="{{ zan }}" id="zan-number">{{ zan }}</p>
+                                    <p>点赞数</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="head-visit">
-                        <div>
-                            <p data-counter="counterup" data-value="{{ visit }}">{{ visit }}</p>
-                            <p>访问量</p>
-                        </div>
-                        <div style="margin-top: 20px;">
-                            <p data-counter="counterup" data-value="{{ zan }}" id="zan-number">{{ zan }}</p>
-                            <p>点赞数</p>
-                        </div>
-                    </div>
-                    <ul>
-                        <div class="ban_hover_img1"></div>
-                        <div class="ban_hover_img2"></div>
-                        <div class="ban_hover_img3"></div>
-                        <div class="ban_hover_img4"></div>
-                        <div class="ban_hover_img5"></div>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0" style="padding-left: 0; margin-left: -60px; z-index: 0">
-                <div style="margin-top: 20px; cursor: pointer;" id="share"><img src="/public/front/images/share.png">
-                </div>
+                     <div class="index_share">
+                         <div style="margin-top: 20px; cursor: pointer;" id="share"><img src="/public/front/images/share.png">
+                         </div>
 
-                <div style="margin-top: 20px; cursor: pointer;" id="zan"><img src="/public/front/images/zan.png"></div>
+                         <div style="margin-top: 20px; cursor: pointer;" id="zan"><img src="/public/front/images/zan.png"></div>
+                     </div>
+                 </div>
+
+                </div>
             </div>
         </div>
 
         {%block main%}{%endblock%}
     </div>
-
-    <!--    <div class="foot">
-            <div class="row1">
-                <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0" style="background-color: #272D36;"></div>
-                <div class="col-lg-6 col-md-10 col-sm-10 col-xs-12" style="padding: 0;background-color: #272D36;text-align: center">
-                    <img src="/public/front/images/footer.png" style="max-width: 1080px">
-                </div>
-                <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0" style="background-color: #272D36"></div>
-            </div>
-            <div class="row1">
-                <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0" style="background-color: #f60"></div>
-                <div class="col-lg-6 col-md-10 col-sm-10 col-xs-12" style="padding: 0;background-color: #f60;text-align: center">
-                    <img src="/public/front/images/footer2.png" style="max-width:  1080px">
-                </div>
-                <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0" style="background-color: #f60"></div>
-            </div>
-        </div> -->
 </div>
 <!-- foot -->
 <div class="foot">
-    <div class="foot_link clearfix">
-        <div class="pull-left box1">
-            <div class="title">友情链接</div>
-            <div><a href="#">知网查重服务</a></div>
-            <div><a href="#">万方论文检测</a></div>
-            <div><a href="#">维普论文检测</a></div>
-        </div>
-        <div class="pull-left box1">
-            <div class="title">联系我们</div>
-            <div class="call">电话：010-1234 5678</div>
-            <div class="call">邮箱：biyezhijia@biye.com</div>
-            <div class="call">微信：wbd-bd</div>
-        </div>
-        <div class="pull-left box1">
-            <div>
-                <img style="display: inline-block;" src="../../public/front/images/weibo.png" alt="">
-                <span style="font-size: 14px; color: #a7a7a7; margin-left: 10px;">
+    <div class="container_center">
+        <div class="foot_link clearfix">
+            <div class="pull-left box1">
+                <div class="title">友情链接</div>
+                <div><a href="#">知网查重服务</a></div>
+                <div><a href="#">万方论文检测</a></div>
+                <div><a href="#">维普论文检测</a></div>
+            </div>
+            <div class="pull-left box1">
+                <div class="title">联系我们</div>
+                <div class="call">电话：010-1234 5678</div>
+                <div class="call">邮箱：biyezhijia@biye.com</div>
+                <div class="call">微信：wbd-bd</div>
+            </div>
+            <div class="pull-left box1">
+                <div>
+                    <img style="display: inline-block;" src="../../public/front/images/weibo.png" alt="">
+                    <span style="font-size: 14px; color: #a7a7a7; margin-left: 10px;">
 							<a target="_blank" style="display: inline-block"
                                href="https://weibo.com/p/1006065446514131/home?from=page_100606&mod=TAB&is_all=1#place">官方微博</a>
 						</span>
+                </div>
+            </div>
+            <div class="pull-left box4">
+                <!--					<div class="pull-left" style="text-align: center;">-->
+                <!--						<img style="display: inline-block;" src="../../public/front/images/ewm.png" alt="">-->
+                <!--						<p>扫码使用小程序</p>-->
+                <!--						<p>手机完成查重</p>-->
+                <!--					</div>-->
+                <div class="pull-left" style="margin-left: 0px;text-align: center;">
+                    <img style="display: inline-block;" src="../../public/front/images/gzh.jpg" alt="">
+                    <p>扫码关注公众号</p>
+                    <p>获取更多信息</p>
+                </div>
             </div>
         </div>
-        <div class="pull-left box4">
-            <!--					<div class="pull-left" style="text-align: center;">-->
-            <!--						<img style="display: inline-block;" src="../../public/front/images/ewm.png" alt="">-->
-            <!--						<p>扫码使用小程序</p>-->
-            <!--						<p>手机完成查重</p>-->
-            <!--					</div>-->
-            <div class="pull-left" style="margin-left: 0px;text-align: center;">
-                <img style="display: inline-block;" src="../../public/front/images/gzh.jpg" alt="">
-                <p>扫码关注公众号</p>
-                <p>获取更多信息</p>
-            </div>
-        </div>
-    </div>
-    <div class="record">
-        <ul>
-            <li style="margin-right: 20px;">鲁ICP备19062764号-1 毕业之家版权所有</li>
-            <li><a>公司简介</a>|</li>
-            <li><a>联系我们</a>|</li>
-            <li><a>招聘信息</a>|</li>
-            <li><a>隐私政策</a>|</li>
-            <li><a>广告服务</a>|</li>
-            <li><a>网站地图</a>|</li>
-            <li><a>不良信息举报</a>|</li>
-            <li><a>客服举报</a></li>
-        </ul>
+        <div class="record">
+            <ul>
+                <li style="margin-right: 20px;">鲁ICP备19062764号-1 毕业之家版权所有</li>
+                <li><a>公司简介</a>|</li>
+                <li><a>联系我们</a>|</li>
+                <li><a>招聘信息</a>|</li>
+                <li><a>隐私政策</a>|</li>
+                <li><a>广告服务</a>|</li>
+                <li><a>网站地图</a>|</li>
+                <li><a>不良信息举报</a>|</li>
+                <li><a>客服举报</a></li>
+            </ul>
 
+        </div>
     </div>
+
 </div>
 <script src="/public/front/js/jquery.liMarquee.js"></script>
 <script src="/public/front/plugins/counterup/jquery.counterup.min.js"></script>
@@ -332,11 +328,11 @@
     $(function () {
         $('.head-brand div').mouseover(function () {
             var i = $(this).index();
-            $('.banner ul div').eq(i).show().siblings().hide();
+            $('.imgg').eq(i).show();
         });
         $('.head-brand div').mouseout(function () {
             var i = $(this).index();
-            $('.banner ul div').eq(i).hide().siblings().hide();
+            $('.imgg').eq(i).hide();
         });
 
     })
