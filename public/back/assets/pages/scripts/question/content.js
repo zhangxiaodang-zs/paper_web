@@ -8,14 +8,23 @@ var questionContentList = [];
 if (App.isAngularJsApp() === false) {
     jQuery(document).ready(function() {
         //百度富文本编辑器初始化
-        UM.getEditor("content", {
+        UE.getEditor("content", {
+            toolbars: [[
+                'undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikethrough', '|', 'superscript', 'subscript', '|', 'forecolor', 'backcolor', '|', 'removeformat', '|',
+                'insertorderedlist', 'insertunorderedlist', '|', 'selectall', 'cleardoc', 'paragraph', '|', 'fontfamily', 'fontsize' ,
+                '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|',
+                'link', 'unlink', '|', 'insertimage', 'emotion', 'insertvideo',  '|', 'map',
+                '|', 'horizontal', 'preview', 'drafts', 'formula'
+            ]],
+
             autoHeightEnabled: false,
             initialFrameHeight: 200,
-            initialFrameWidth: null,
-            imageUrl: "http://localhost:9099/" + 'fileUpload',  //此处请求服务器的地址
-            imagePath:'',
-            imageFieldName:"upfile",
-            imageAllowFiles: [".png", ".jpg", ".jpeg", ".gif", ".bmp"]
+            serverUrl: webUrl + 'fileUpload',  //此处请求服务器的地址
+            imageFieldName: "uploadFile",
+            imageUrlPrefix: '',
+            imageActionName: 'ajaxUpload',
+            imageAllowFiles: [".png", ".jpg", ".jpeg", ".gif", ".bmp"],
+            catcherUrlPrefix: '',
         });
         questionTypeDataGet(null, null);
         QuestionContentTable.init();
@@ -192,7 +201,7 @@ var QuestionContentEdit = function() {
             btnDisable($('#register-btn'));
             if ($('.register-form').validate().form()) {
                 var questionContent = $('.register-form').getFormData();
-                questionContent.content = UM.getEditor('content').getContent();
+                questionContent.content = UE.getEditor('content').getContent();
                 if(questionContent.content == ""){
                     alertDialog("回答内容必须输入！");
                     return;
@@ -213,7 +222,7 @@ var QuestionContentEdit = function() {
                 .removeAttr("checked")
                 .removeAttr("selected");
             //清空文本框
-            UM.getEditor('content').setContent("", false);
+            UE.getEditor('content').setContent("", false);
 
             $("input[name=edittype]").val(QUESTIONADD);
             $('#edit_question').modal('show');
@@ -329,7 +338,7 @@ function getQuestionContentEnd(flg, result, temp){
             var options = { jsonValue: questionContent, exclude:exclude, isDebug: false};
             $(".register-form").initForm(options);
             //文本框赋值
-            UM.getEditor('content').setContent(questionContent.content, false);
+            UE.getEditor('content').setContent(questionContent.content, false);
             $("input[name=edittype]").val(QUESTIONEDIT);
             $('#edit_question').modal('show');
         }else{

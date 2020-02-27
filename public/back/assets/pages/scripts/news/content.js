@@ -8,14 +8,35 @@ var newsContentList = [];
 if (App.isAngularJsApp() === false) {
     jQuery(document).ready(function() {
         //百度富文本编辑器初始化
-        UM.getEditor("content", {
+        UE.getEditor("content", {
+            /*toolbars: [[
+                'fullscreen', '|', 'undo', 'redo', '|',
+                'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
+                'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+                'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
+                'directionalityltr', 'directionalityrtl', 'indent', '|',
+                'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
+                'link', 'unlink', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
+                'insertimage', 'emotion', 'insertvideo', 'music', 'map', 'template', 'background', '|',
+                'horizontal', 'date', 'time', 'spechars', '|',
+                'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
+                'searchreplace'
+            ]],*/
+            toolbars: [[
+                'undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikethrough', '|', 'superscript', 'subscript', '|', 'forecolor', 'backcolor', '|', 'removeformat', '|',
+                'insertorderedlist', 'insertunorderedlist', '|', 'selectall', 'cleardoc', 'paragraph', '|', 'fontfamily', 'fontsize' ,
+                '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|',
+                'link', 'unlink', '|', 'insertimage', 'emotion', 'insertvideo',  '|', 'map',
+                '|', 'horizontal', 'preview', 'drafts', 'formula'
+            ]],
             autoHeightEnabled: false,
             initialFrameHeight: 200,
-            initialFrameWidth: null,
-            imageUrl: "http://localhost:9099/" + 'fileUpload',  //此处请求服务器的地址
-            imagePath:'',
-            imageFieldName:"upfile",
-            imageAllowFiles: [".png", ".jpg", ".jpeg", ".gif", ".bmp"]
+            serverUrl: webUrl + 'fileUpload',  //此处请求服务器的地址
+            imageFieldName: "uploadFile",
+            imageUrlPrefix: '',
+            imageActionName: 'ajaxUpload',
+            imageAllowFiles: [".png", ".jpg", ".jpeg", ".gif", ".bmp"],
+            catcherUrlPrefix: '',
         });
         newsTypeDataGet(null, null);
         NewsContentTable.init();
@@ -206,7 +227,7 @@ var NewsContentEdit = function() {
             btnDisable($('#register-btn'));
             if ($('.register-form').validate().form()) {
                 var newsContent = $('.register-form').getFormData();
-                newsContent.content = UM.getEditor('content').getContent();
+                newsContent.content = UE.getEditor('content').getContent();
                 if(newsContent.content == ""){
                     alertDialog("新闻内容必须输入！");
                     return;
@@ -263,7 +284,7 @@ var NewsContentEdit = function() {
             $("#newsurl").siblings("img").attr("src", "/public/back/assets/pages/img/default.jpg");
             $("#newsurl").siblings("input[name=newsimage], input[name=oldimage]").val("");
             //清空文本框
-            UM.getEditor('content').setContent("", false);
+            UE.getEditor('content').setContent("", false);
 
             $("input[name=edittype]").val(NEWSADD);
             $('#edit_news').modal('show');
@@ -407,7 +428,7 @@ function getNewsContentEnd(flg, result, temp){
             $("#newsurl").siblings("img").attr("src", temp.newsurl);
             $("#newsurl").siblings("input[name=newsimage], input[name=oldimage]").val(temp.newsurl);
             //文本框赋值
-            UM.getEditor('content').setContent(newsContent.content, false);
+            UE.getEditor('content').setContent(newsContent.content, false);
             $("input[name=edittype]").val(NEWSEDIT);
             $('#edit_news').modal('show');
         }else{

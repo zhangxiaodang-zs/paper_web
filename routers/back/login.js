@@ -266,4 +266,5 @@ router.post('/questioncontent',function(req,res,next){
         res.redirect('/back/login');
     }
 });
+
 module.exports = router;
