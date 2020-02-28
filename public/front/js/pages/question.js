@@ -15,10 +15,8 @@ var GetRequest=function(){
     return theRequest;
 }
 console.log( GetRequest().newstypeid)
-
 var currentpage=0;
 function NewsList(currentpage){
-    $(".news_con ul li").remove();
     var data = {
         "newstypeid": GetRequest().newstypeid,
         "currentpage": currentpage,
@@ -34,19 +32,16 @@ function NewsList(currentpage){
         data: sendMessageEdit(data),//将js对象转为字符串
         dataType: "json",        //返回数据形式为json
         success: function (result) {
-           // console.log(JSON.stringify(result))
+            // console.log(JSON.stringify(result))
             for (var i = 0; i < result.newscontentlist.length; i++){
-                $(".news_con ul").append(
+                $(".question_con ul").append(
                     '<li class="clearfix" data-url="news_info">'+
-                        '<img class="pull-left" src="'+result.newscontentlist[i].thumbs+'" alt="">'+
-                        '<div class="pull-right" style="width: 74%;">'+
-                            '<div class="title">'+result.newscontentlist[i].title+'</div>'+
-                            '<div class="content">'+result.newscontentlist[i].summary+'</div>'+
-                                '<div class="time">'+
-                                    '<span style="margin-right: 30px">'+result.newscontentlist[i].add_time+'</span>'+
+                    '<div class="title">'+result.newscontentlist[i].title+'</div>'+
+                    '<div class="content">'+result.newscontentlist[i].summary+'</div>'+
+                    '<div class="time">'+
+                    '<span style="margin-right: 30px">'+result.newscontentlist[i].add_time+'</span>'+
                     '<span>作者：'+result.newscontentlist[i].author+'</span>'+
-                                '</div>'+
-                        '</div>'+
+                    '</div>'+
                     '</li>'
                 )
             }
@@ -55,6 +50,7 @@ function NewsList(currentpage){
         }
     });
 }
+
 //分页js
 $(".page_mess ul li").click(function () {
     $(".news_con ul li").remove();

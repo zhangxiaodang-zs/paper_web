@@ -212,27 +212,8 @@ html{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .aside{
-    height: 410px;
+    margin-bottom: 50px;
     text-align: center;
 }
 
@@ -309,10 +290,17 @@ html{
 }
 
 .el-button--success.is-plain {
-    color: #67c23a;
-    background: #f0f9eb;
-    border-color: #c2e7b0;
+    background: #a1cf40;
+    border-radius: 6px !important;
+    width: 146px;
+    text-align: center;
+    height: 33px;
+    line-height: 33px;
+    padding: 0;
+    border: 1px solid #dcdcdc;
+    color: #262626 !important;
 }
+
 .el-button--mini, .el-button--small {
     font-size: 12px!important;
     border-radius: 3px!important;
@@ -545,12 +533,14 @@ html{
 	padding-bottom: 20px;
 	margin-top: 20px;
 }
+.news_con ul li:last-child{
+    border-bottom:none;
+}
 .news_con ul li:hover .title{
     color: #a1cf40;
 }
 .news_con ul li img{
-    width: 2.4rem;
-    height: 1.6rem;
+   width: 22%;
     overflow: hidden;
 }
 .news_con ul li .title{
@@ -656,7 +646,11 @@ html{
 }
 
 .el-divider {
-    padding-left: 10px;
+    line-height: 0.45rem;
+    width: 100%;
+    overflow: hidden;
+    text-align: left;
+    padding-left: 60px;
     /* text-align: right; */
     font-size: 0.14rem;
     color: #a1cf40;
@@ -756,4 +750,26 @@ html{
 }
 .mr-20{
     margin-right: 20px;
+}
+
+/*分页信息*/
+.page_mess ul li,.page_mess ul div{
+    text-align: center;
+    float: left;
+    list-style-type: none;
+    width: 0.43rem;
+    height: 0.43rem;
+    line-height: 0.43rem;
+    background: #fff;
+    border-radius: 0.08rem !important;
+    border: solid 0.01rem #dcdcdc;
+    margin-right: 0.12rem;
+    margin-top: 0.2rem;
+    cursor: pointer;
+}
+.page_active{
+    background: #a1cf40 !important;
+}
+.page_mess ul li:nth-child(n+5){
+    display: none;
 }

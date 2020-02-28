@@ -314,7 +314,7 @@
             data: sendMessageEdit({}),
             dataType: "json",        //返回数据形式为json
             success: function (result) {
-                console.info("recentOrderGet:" + JSON.stringify(result));
+               // console.info("recentOrderGet:" + JSON.stringify(result));
                 App.unblockUI('.paper-container');
                 var order = "";
                 for (var i = 0; i < result.length; i++) {

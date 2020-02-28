@@ -81,7 +81,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
-                    <div class="col-lg-2 ">
+                    <div class="col-lg-2">
                         <div class="aside">
                             <ul class="el-menu">
                                 <li class="el-menu-item is-active" data-url="index">
@@ -93,13 +93,16 @@
                                     <div class="el-divider"></div>
                                 </li>
                                 <li class="el-menu-item" data-url="news">
-                                    <span>行业新闻</span>
-                                    <div class="el-divider item-check" data-url="news">查重经验</div>
+                                    <span data-url="news">行业新闻</span>
+                                    <div class="hy_news item-check">
+                                    </div>
                                 </li>
 
                                 <li class="el-menu-item" data-url="question">
                                     <span>常见问题</span>
-                                    <div class="el-divider item-search" data-url="question">论文查重</div>
+                                    <div class="question_news item-search">
+                                    </div>
+
                                 </li>
                                 <li class="el-menu-item" data-url="contact">
                                     <span>联系我们</span>
@@ -127,7 +130,7 @@
                                                        name="author" id="author">
                                             </div>
                                         </div>
-                                        <ul class="nav nav-tabs" style="margin-left: 110px">
+                                        <ul class="nav nav-tabs" style="margin-left: 95px">
                                             <li class="active">
                                                 <a href="#tab_1_1" id="paste" data-toggle="tab"> 粘贴文本 </a>
                                             </li>
@@ -366,5 +369,14 @@
 <script type="text/javascript">
     var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
     document.write(unescape("%3Cspan id='cnzz_stat_icon_1278622305'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1278622305%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+    $(document).ready(function () {
+        $('li.button a').click(function (e) {
+            var dropDown = $(this).parent().next();
+            $('.dropdown').not(dropDown).slideUp('slow');
+            dropDown.slideToggle('slow');
+            e.preventDefault();
+        })
+
+    });
 </script>
 {% endblock %}

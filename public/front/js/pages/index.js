@@ -14,7 +14,36 @@ $(document).ready(function () {
        PaperSubmit.init()
        CardSubmit.init();
    }
+    menus();//调取二级菜单接口
 });
+
+function menus(){
+    $.ajax({
+        type: "post",
+        contentType: "application/json",
+        async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        url:  'http://www.biye.com.cn:9900/java/paper/front/menus',    //请求发送到TestServlet处
+        data: sendMessageEdit({}),//将js对象转为字符串
+        dataType: "json",        //返回数据形式为json
+        success: function (result) {
+            for (var i = 0; i < result.newslist.length; i++){
+                $(".hy_news").append(
+                    ' <div class="el-divider" id="'+result.newslist[i].newstypeid+'" data-url="news">'+result.newslist[i].newstype+'</div>'
+                )
+            }
+            for (var i = 0; i < result.quelist.length; i++){
+                $(".question_news").append(
+                    ' <div class="el-divider" id="'+result.quelist[i].questionid+'" data-url="question">'+result.quelist[i].questiontype+'</div>'
+                )
+            }
+
+        },
+        error: function (errorMsg) {
+
+        }
+    });
+}
+
 
 $("#upload-btn, #pay-btn, #submit-btn").on("click", function(){
     if(login != 1){
