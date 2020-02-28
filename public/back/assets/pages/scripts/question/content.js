@@ -66,8 +66,8 @@ var QuestionContentTable = function () {
                 { "data": "questiontype" },
                 { "data": "title" },
                 { "data": "summary" },
-                { "data": "time" },
-                { "data": "read" },
+                { "data": "updtime" },
+                { "data": "readtimes" },
                 { "data": "thumbs" },
                 { "data": null }
             ],

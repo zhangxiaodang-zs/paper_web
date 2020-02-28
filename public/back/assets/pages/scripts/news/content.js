@@ -79,8 +79,8 @@ var NewsContentTable = function () {
                 { "data": "title" },
                 { "data": "newsurl" },
                 { "data": "summary" },
-                { "data": "time" },
-                { "data": "read" },
+                { "data": "updtime" },
+                { "data": "readtimes" },
                 { "data": "thumbs" },
                 { "data": null }
             ],
