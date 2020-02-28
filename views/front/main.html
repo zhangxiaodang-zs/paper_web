@@ -183,7 +183,7 @@
                                     <p>修改秘籍</p>
                                     <div class="ban_hover_img4 img_hover"></div>
                                 </div>
-                                <div class="brand-img">
+                                <div class="brand-img" style="height: 140px">
                                     <img src="../../public/front/images/yhq.png" alt="">
                                     <p>领取优惠券</p>
                                     <div class="ban_hover_img5 img_hover">
@@ -341,7 +341,7 @@
         });
         $('.head-brand .brand-img').mouseout(function () {
             var i = $(this).index();
-            if(i==4){ return false;}
+           // if(i==4){ return false;}
             $('.img_hover').eq(i).hide();
         });
         $('.head-brand .brand-img').eq(4).mouseover(function () {
@@ -350,6 +350,7 @@
         $('.img_hover').eq(4).mouseout(function () {
             $('.ban_hover_img5').hide();
         })
+
 
     })
 </script>

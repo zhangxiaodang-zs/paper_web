@@ -180,7 +180,6 @@ router.post('/user/save', function(req,res, next){
     }
     res.send("");
 });
-
 router.post('/zan', function(req,res, next){
     logger.info("增加点赞量");
     var zanTemp = zan + 1;
