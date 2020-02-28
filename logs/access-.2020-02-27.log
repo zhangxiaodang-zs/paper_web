@@ -2955,3 +2955,29 @@
 [2020-02-27T17:35:40.207] [INFO] http - /index
 [2020-02-27T17:35:40.208] [INFO] http - undefined
 [2020-02-27T17:35:40.213] [INFO] http - [::ffff:127.0.0.1 POST /index 200 91ms][http://127.0.0.1:8089/contact HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
+[2020-02-27T19:26:12.004] [INFO] http - 获取访问量和点赞数
+[2020-02-27T19:26:12.026] [INFO] http - null
+[2020-02-27T19:26:12.026] [INFO] http - 17491
+[2020-02-27T19:26:12.046] [INFO] http - /download
+[2020-02-27T19:26:12.055] [INFO] http - [::ffff:127.0.0.1 POST /download 200 50ms][http://127.0.0.1:8089/ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
+[2020-02-27T19:26:23.201] [INFO] http - 获取访问量和点赞数
+[2020-02-27T19:26:23.222] [INFO] http - null
+[2020-02-27T19:26:23.223] [INFO] http - 17491
+[2020-02-27T19:26:23.244] [INFO] http - /question
+[2020-02-27T19:26:23.255] [INFO] http - [::ffff:127.0.0.1 POST /question 200 55ms][http://127.0.0.1:8089/download HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
+[2020-02-27T19:26:49.440] [INFO] http - 获取访问量和点赞数
+[2020-02-27T19:26:49.461] [INFO] http - null
+[2020-02-27T19:26:49.461] [INFO] http - 17491
+[2020-02-27T19:26:49.487] [INFO] http - /news
+[2020-02-27T19:26:49.493] [INFO] http - [::ffff:127.0.0.1 POST /news 200 53ms][http://127.0.0.1:8089/question HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
+[2020-02-27T19:26:52.389] [INFO] http - 获取访问量和点赞数
+[2020-02-27T19:26:52.436] [INFO] http - null
+[2020-02-27T19:26:52.436] [INFO] http - 17491
+[2020-02-27T19:26:52.457] [INFO] http - /news_info
+[2020-02-27T19:26:52.463] [INFO] http - [::ffff:127.0.0.1 POST /news_info 200 75ms][http://127.0.0.1:8089/news HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]
+[2020-02-27T19:27:03.162] [INFO] http - 获取访问量和点赞数
+[2020-02-27T19:27:03.190] [INFO] http - null
+[2020-02-27T19:27:03.190] [INFO] http - 17491
+[2020-02-27T19:27:03.213] [INFO] http - /index
+[2020-02-27T19:27:03.213] [INFO] http - undefined
+[2020-02-27T19:27:03.230] [INFO] http - [::ffff:127.0.0.1 POST /index 200 69ms][http://127.0.0.1:8089/news_info HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36]

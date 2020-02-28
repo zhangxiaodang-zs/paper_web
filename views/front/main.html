@@ -166,27 +166,35 @@
                                 <div class="brand-img">
                                     <img src="../../public/front/images/sb.png" alt="">
                                     <p>品牌商标</p>
-                                    <div class="ban_hover_img1 imgg"></div>
+                                    <div class="ban_hover_img1 img_hover"></div>
                                 </div>
                                 <div class="brand-img">
                                     <img src="../../public/front/images/rz.png" alt="">
                                     <p>品牌软著</p>
-                                    <div class="ban_hover_img2 imgg"></div>
+                                    <div class="ban_hover_img2 img_hover"></div>
                                 </div>
                                 <div class="brand-img">
                                     <img src="../../public/front/images/tm.png" alt="">
                                     <p>天猫品牌</p>
-                                    <div class="ban_hover_img3 imgg"></div>
+                                    <div class="ban_hover_img3 img_hover"></div>
                                 </div>
                                 <div class="brand-img">
                                     <img src="../../public/front/images/mj.png" alt="">
                                     <p>修改秘籍</p>
-                                    <div class="ban_hover_img4 imgg"></div>
+                                    <div class="ban_hover_img4 img_hover"></div>
                                 </div>
                                 <div class="brand-img">
                                     <img src="../../public/front/images/yhq.png" alt="">
                                     <p>领取优惠券</p>
-                                    <div class="ban_hover_img5 imgg"></div>
+                                    <div class="ban_hover_img5 img_hover">
+                                        <a target="_blank" href="https://taoquan.taobao.com/coupon/unify_apply.htm?sellerId=2541110187&activityId=f5e9882ac37c4a9a9a33a572b0a61559">
+                                            <img class="mt-10 ml-8" src="../../public/front/images/img5_1.png" alt="">
+                                        </a>
+                                        <a target="_blank" href="https://taoquan.taobao.com/coupon/unify_apply.htm?sellerId=2762817742&activityId=ca0cb5750459477eb672938a02468b29">
+                                            <img class="mt-8 ml-8" src="../../public/front/images/img5_2.png" alt="">
+                                        </a>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -326,14 +334,22 @@
 
     //首页banner经过效果
     $(function () {
-        $('.head-brand div').mouseover(function () {
+        $('.head-brand .brand-img').mouseover(function () {
             var i = $(this).index();
-            $('.imgg').eq(i).show();
+            if(i==4){return false;}
+            $('.img_hover').eq(i).show();
         });
-        $('.head-brand div').mouseout(function () {
+        $('.head-brand .brand-img').mouseout(function () {
             var i = $(this).index();
-            $('.imgg').eq(i).hide();
+            if(i==4){ return false;}
+            $('.img_hover').eq(i).hide();
         });
+        $('.head-brand .brand-img').eq(4).mouseover(function () {
+            $('.img_hover').eq(4).show();
+        })
+        $('.img_hover').eq(4).mouseout(function () {
+            $('.ban_hover_img5').hide();
+        })
 
     })
 </script>
