@@ -249,7 +249,7 @@ var NewsContentEdit = function() {
                         processData: false,
                         success: function (result) {
                             if (result.code == SUCCESS) {
-                                newsContent.newsurl = result.newsurl;
+                                newsContent.newsurl = result.url;
                                 if($("input[name=edittype]").val() == NEWSADD){
                                     newsContentAdd(newsContent);
                                 }else{
