@@ -743,7 +743,7 @@ html{
 }
 .news_list_hot_l ul li .bt,.news_list_hot_r ul li .bt{
     float: left;
-    width: 60%;
+    width: 50%;
     overflow: hidden;
 }
 .news_list_hot ul li:hover{
