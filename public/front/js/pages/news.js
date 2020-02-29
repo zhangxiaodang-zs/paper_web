@@ -5,12 +5,11 @@ var type_title;
 $(document).ready(function () {
     typeid = localStorage.getItem('typeid');
     type_title = localStorage.getItem('type_title');
-    console.log(typeid)
-    console.log(type_title)
     NewsList(startindex,typeid)//新闻列表接口
 });
 
 function NewsList(startindex,typeid){
+    $(".news_con ul").html();
     $(".news_con ul li").remove();
     var data = {
         "newstypeid": typeid,
@@ -43,9 +42,10 @@ function NewsList(startindex,typeid){
                     '</li>'
                 )
             }
-            
-
-
+            $(".news_con ul li").fadeIn(800);
+            // $(".news_con").append(
+            //     55
+            // )
         },
         error: function (errorMsg) {
         }
@@ -53,14 +53,11 @@ function NewsList(startindex,typeid){
 }
 //分页js
 $(".page_mess ul li").click(function () {
-    $(".news_con ul li").remove();
     $(this).addClass("page_active").siblings().removeClass("page_active");
     var num=$(this).attr("num");
     startindex=num;
-    console.log(startindex)
-    NewsList(startindex);
+    NewsList(startindex,typeid);
 })
-
 $(".page_next").click(function () {
     $(".page_mess ul li").fadeIn()
 })

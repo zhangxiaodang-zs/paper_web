@@ -17,6 +17,7 @@ html{
 .mt-8{margin-top: 8px}
 .mt-10{margin-top: 10px}
 .ml-8{margin-left: 8px}
+.red{color: red}
 /*————————main.css——————————————*/
 /*网站顶部*/
 .top{
@@ -525,6 +526,7 @@ html{
 	padding: 25px 40px;
 }
 .news_con ul li{
+    display: none;
 	cursor: pointer;
 	list-style-type: none;
 	width: 100%;
@@ -686,7 +688,7 @@ html{
 /*点赞 分享*/
 .news_info_fx{
     margin: 0 auto;
-    width: 180px;
+    width: 200px;
     margin-top: 20px;
 }
 .news_info_fx .share,.news_info_fx .like{
@@ -732,7 +734,7 @@ html{
     margin-top: 20px;
 }
 .news_list_hot_l ul li,.news_list_hot_r ul li{
-    width: 90%;
+    width: 95%;
     cursor: pointer;
     list-style-type: none;
     font-size: 14px;
@@ -772,3 +774,24 @@ html{
 .page_mess ul li:nth-child(n+5){
     display: none;
 }
+/*首页分享*/
+.main_fx{
+    right: 0;
+    position: fixed;
+    top: 20%;
+    z-index: 999;
+    background: #fff;
+    padding: 10px;
+    border-radius: 6px !important;
+    display: none;
+}
+/*新闻详情分享*/
+.newsinfo_fx{
+    margin-top: 60px;
+    display: none;
+}
+.questioninfo_fx{
+    margin-top: 60px;
+    display: none;
+}
+

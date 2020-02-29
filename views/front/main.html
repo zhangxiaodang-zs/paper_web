@@ -212,10 +212,12 @@
                         </div>
                     </div>
                      <div class="index_share">
-                         <div style="margin-top: 20px; cursor: pointer;" id="share"><img src="/public/front/images/share.png">
+                         <div style="margin-top: 20px; cursor: pointer;" id="share">
+                             <img src="/public/front/images/share.png">
                          </div>
 
                          <div style="margin-top: 20px; cursor: pointer;" id="zan"><img src="/public/front/images/zan.png"></div>
+
                      </div>
                  </div>
 
@@ -224,6 +226,18 @@
         </div>
 
         {%block main%}{%endblock%}
+    </div>
+</div>
+<!--分享-->
+<div class="main_fx">
+    <div class="bshare-custom">
+        <a title="分享到QQ空间" class="bshare-qzone"></a>
+        <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+        <a title="分享到人人网" class="bshare-renren"></a>
+        <a title="分享到腾讯微博" class="bshare-qqmb"></a>
+        <a title="分享到网易微博" class="bshare-neteasemb"></a>
+        <a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+        <span class="BSHARE_COUNT bshare-share-count">0</span>
     </div>
 </div>
 <!-- foot -->
@@ -281,10 +295,26 @@
     </div>
 
 </div>
+<!--<script src="/node_modules/vue/dist/vue.js"></script>-->
+<!--<script src="/node_modules/vue-router/dist/vue-router.js"></script>-->
 <script src="/public/front/js/jquery.liMarquee.js"></script>
 <script src="/public/front/plugins/counterup/jquery.counterup.min.js"></script>
 <script src="/public/front/plugins/counterup/jquery.waypoints.min.js"></script>
 <script src="/public/front/js/pages/common.js"></script>
+<!--分享-->
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/button.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+<a class="bshareDiv" onclick="javascript:return false;"></a>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+<!-- End of XMO Insight Tag  -->
+<script type="text/javascript" charset="utf-8">
+    bShare.addEntry({
+        title: "毕业之家",
+        url: "http://biye.com.cn",
+        summary: "毕业之家",
+        pic: ""
+    });
+
+</script>
 <script>
     $(document).ready(function () {
         vipTimeDisplay();
@@ -353,6 +383,9 @@
 
 
     })
+    $("#share").click(function(){
+        $(".main_fx").toggle();
+    });
 </script>
 </body>
 </html>

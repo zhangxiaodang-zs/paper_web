@@ -1,15 +1,19 @@
 var currentpage=0;//当前页
 var startindex=0;//开始页
+var typeid;
+var type_title;
 $(document).ready(function () {
-    var typeid = localStorage.getItem('typeid');
-    console.log(typeid)
-    NewsList(startindex,typeid)//列表接口
+    typeid = localStorage.getItem('typeid');
+    type_title = localStorage.getItem('type_title');
+    question_list(startindex,typeid)//列表接口
 });
 
 
-function NewsList(currentpage,typeid){
+function question_list(startindex,typeid){
+    $(".question_con ul").html();
+    $(".question_con ul li").remove();
     var data = {
-        "newstypeid": typeid,
+        "questiontypeid": typeid,
         "currentpage": 0,
         "startindex": startindex,
         "pagesize":20,
@@ -19,19 +23,18 @@ function NewsList(currentpage,typeid){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url:  'http://www.biye.com.cn:9900/java/paper/front/news/list',    //请求发送到TestServlet处
+        url:  'http://www.biye.com.cn:9900/java/paper/front/question/list',    //请求发送到TestServlet处
         data: sendMessageEdit(data),//将js对象转为字符串
         dataType: "json",        //返回数据形式为json
         success: function (result) {
-            // console.log(JSON.stringify(result))
-            for (var i = 0; i < result.newscontentlist.length; i++){
+            for (var i = 0; i < result.questioncontentlist.length; i++){
                 $(".question_con ul").append(
-                    '<li class="clearfix" data-url="news_info">'+
-                    '<div class="title">'+result.newscontentlist[i].title+'</div>'+
-                    '<div class="content">'+result.newscontentlist[i].summary+'</div>'+
+                    '<li class="clearfix" data-url="question_info" id="'+result.questioncontentlist[i].id+'">'+
+                    '<div class="title">'+result.questioncontentlist[i].title+'</div>'+
+                    '<div class="content">'+result.questioncontentlist[i].summary+'</div>'+
                     '<div class="time">'+
-                    '<span style="margin-right: 30px">'+result.newscontentlist[i].add_time+'</span>'+
-                    '<span>作者：'+result.newscontentlist[i].author+'</span>'+
+                    '<span style="margin-right: 30px">'+result.questioncontentlist[i].add_time+'</span>'+
+                    '<span>作者：'+result.questioncontentlist[i].author+'</span>'+
                     '</div>'+
                     '</li>'
                 )
@@ -44,13 +47,31 @@ function NewsList(currentpage,typeid){
 
 //分页js
 $(".page_mess ul li").click(function () {
-    $(".news_con ul li").remove();
     $(this).addClass("page_active").siblings().removeClass("page_active");
     var num=$(this).attr("num");
     startindex=num;
-    console.log(startindex)
-    NewsList(startindex);
+    question_list(startindex,typeid);
 })
 $(".page_next").click(function () {
     $(".page_mess ul li").fadeIn()
 })
+
+//跳转详情
+$(".question_con ul").on('mouseenter', function () {
+    $(".question_con ul li").click(function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var url = $(this).data("url");
+        var id=$(this).attr('id');
+        var s_title=type_title;//二级标题
+        var title=$(this).find(".title").html();//列表标题
+        localStorage.setItem('id', id);
+        localStorage.setItem('s_title', s_title);
+        localStorage.setItem('title', title);
+        var form = document.createElement('form');
+        form.action = url;
+        form.method = 'post';
+        $(document.body).append(form);
+        form.submit();
+    })
+});

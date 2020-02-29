@@ -2,18 +2,21 @@ var id;
 var s_title;
 var title;
 $(document).ready(function () {
-     id = localStorage.getItem('id');//详情id
-     s_title = localStorage.getItem('s_title');
-     title = localStorage.getItem('title');
+    id = localStorage.getItem('id');
+    s_title = localStorage.getItem('s_title');
+    title = localStorage.getItem('title');
+    console.log(id)
+    console.log(s_title)
+    console.log(title)
     $(".news_info_nav span").html(s_title+" > "+title);
-    NewsInfo(id)//新闻列表接口
+    question_info(id)//新闻列表接口
     NewsList_about();//获取相关文章
     NewsList_hot();//热点新闻
 });
 
-function NewsInfo(id){
+function question_info(id){
     var data = {
-        "newsid": id,
+        "questionid": id,
         "currentpage": 0,
         "startindex": 0,
         "pagesize":20,
@@ -23,17 +26,17 @@ function NewsInfo(id){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url:  'http://www.biye.com.cn:9900/java/paper/front/news/content',    //请求发送到TestServlet处
+        url:  'http://www.biye.com.cn:9900/java/paper/front/question/content',    //请求发送到TestServlet处
         data: sendMessageEdit(data),//将js对象转为字符串
         dataType: "json",        //返回数据形式为json
         success: function (result) {
             if (result.code == 200){
-                $(".news_info .title").html(result.newscontent.title);//标题
-                $(".news_info .info_author").html("作者："+result.newscontent.author);//作者
-                $(".news_info .content p").html(result.newscontent.content);//内容
-                $(".news_info .info_read").html("阅读 "+result.newscontent.read);//阅读
-                $(".news_info .info_like").html("点赞 "+result.newscontent.like);//点赞
-                $(".news_info .info_time").html(dateTimeFormat(result.newscontent.add_time));//时间
+                $(".news_info .title").html(result.questioncontent.title);//标题
+                $(".news_info .info_author").html("作者："+result.questioncontent.author);//作者
+                $(".news_info .content p").html(result.questioncontent.content);//内容
+                $(".news_info .info_read").html("阅读 "+result.questioncontent.read);//阅读
+                $(".news_info .info_like").html("点赞 "+result.questioncontent.like);//点赞
+                $(".news_info .info_time").html(dateTimeFormat(result.questioncontent.add_time));//时间
             }
 
         },
@@ -59,8 +62,8 @@ function NewsList_about(){
                     for (var i = 0; i < result.questioncontentlist.length; i++){
                         $(".news_list_hot_l ul").append(
                             '<li id="'+result.questioncontentlist[i].id+'" data-url="question_info">'+
-                                '<div class="bt">'+result.questioncontentlist[i].title+'</div>'+
-                                '<span style="margin-right: 20px">'+dateTimeFormat(result.questioncontentlist[i].add_time)+'</span>'+
+                            '<div class="bt">'+result.questioncontentlist[i].title+'</div>'+
+                            '<span style="margin-right: 20px">'+dateTimeFormat(result.questioncontentlist[i].add_time)+'</span>'+
                             ' <span>'+result.questioncontentlist[i].readtimes+'</span>'+
                             '</li>'
                         )
@@ -131,15 +134,15 @@ $(".news_list_hot_r ul,.news_list_hot_l ul").on('mouseenter', function () {
 });
 
 //点赞接口
-$("#news_like").click(function () {
+$("#question_like").click(function () {
     var data = {
-        "newsid": id
+        "questionid": id
     };
     $.ajax({
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url:  'http://www.biye.com.cn:9900/java/paper/front/news/infolike',    //请求发送到TestServlet处
+        url:  'http://www.biye.com.cn:9900/java/paper/front/question/infolike',    //请求发送到TestServlet处
         data: sendMessageEdit(data),//将js对象转为字符串
         dataType: "json",        //返回数据形式为json
         success: function (result) {

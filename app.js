@@ -29,6 +29,7 @@ swig.setDefaults({cache:false});
 //托管规则：用户发送http请求到后端，后端解析url，找到匹配规则，执行绑定的函数，返回对应的内容，静态文件直接读取制定目录下文件返回给用户，动态文件：处理业务逻辑，加载模板，解析模板返回上数据
 
 app.use('/public',express.static(__dirname + '/public'));
+app.use('/node_modules',express.static(__dirname + '/node_modules'));
 
 //设置日志处理
 log4js.configure();

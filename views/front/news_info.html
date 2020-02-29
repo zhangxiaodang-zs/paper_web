@@ -62,8 +62,8 @@
                             <span class="info_author" style="margin-left: 30px"></span>
                         </div>
                         <div class="pull-right">
-                            <span style="margin-right: 20px">阅读 181376</span>
-                            点赞 825
+                            <span class="info_read" style="margin-right: 20px"></span>
+                            <span class="info_like"></span>
                         </div>
                     </div>
                     <div class="content">
@@ -73,14 +73,28 @@
                     <div class="line"></div>
                     <!-- 点赞分享-->
                     <div class="clearfix news_info_fx">
-                        <div class="pull-left share">
+                        <div class="pull-left share" id="news_share">
                             <span>分享</span>
                             <img src="/public/front/images/info_share.png" alt="">
                         </div>
-                        <div class="pull-right like">
+                        <div class="pull-right like" id="news_like">
                             <span>点赞</span>
                             <img src="/public/front/images/info_like.png" alt="">
                         </div>
+
+                        <!--分享-->
+                        <div class="newsinfo_fx">
+                            <div class="bshare-custom">
+                                <a title="分享到QQ空间" class="bshare-qzone"></a>
+                                <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+                                <a title="分享到人人网" class="bshare-renren"></a>
+                                <a title="分享到腾讯微博" class="bshare-qqmb"></a>
+                                <a title="分享到网易微博" class="bshare-neteasemb"></a>
+                                <a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+                                <span class="BSHARE_COUNT bshare-share-count">0</span>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -89,61 +103,18 @@
                         <div class="pull-left news_list_hot_l">
                             <div class="title">相关文章</div>
                             <ul>
-                                <li>
-                                    <div class="bt">论文查重的技巧有哪些</div>
-                                    <span>2020/02/12</span>
-                                    <span>34553</span>
-                                </li>
-                                <li>
-                                    <div class="bt">论文查重的技巧有哪些</div>
-                                    <span>2020/02/12</span>
-                                    <span>34553</span>
-                                </li>
-                                <li>
-                                    <div class="bt">论文查重的技巧有哪些</div>
-                                    <span>2020/02/12</span>
-                                    <span>34553</span>
-                                </li>
-                                <li>
-                                    <div class="bt">论文查重的技巧有哪些</div>
-                                    <span>2020/02/12</span>
-                                    <span>34553</span>
-                                </li>
-                                <li>
-                                    <div class="bt">论文查重的技巧有哪些</div>
-                                    <span>2020/02/12</span>
-                                    <span>34553</span>
-                                </li>
+<!--                                <li>-->
+<!--                                    <div class="bt">论文查重的技巧有哪些</div>-->
+<!--                                    <span style="margin-right: 20px">2020/02/12</span>-->
+<!--                                    <span>34553</span>-->
+<!--                                </li>-->
+
                             </ul>
                         </div>
                         <div class="pull-right news_list_hot_r">
                             <div class="title">热点新闻</div>
                             <ul>
-                                <li>
-                                    <div class="bt">论文检测报告符合学校要求吗</div>
-                                    <span>2020/02/12</span>
-                                    <span>34553</span>
-                                </li>
-                                <li>
-                                    <div class="bt">论文检测报告符合学校要求吗</div>
-                                    <span>2020/02/12</span>
-                                    <span>34553</span>
-                                </li>
-                                <li>
-                                    <div class="bt">论文检测报告符合学校要求吗</div>
-                                    <span>2020/02/12</span>
-                                    <span>34553</span>
-                                </li>
-                                <li>
-                                    <div class="bt">论文检测报告符合学校要求吗</div>
-                                    <span>2020/02/12</span>
-                                    <span>34553</span>
-                                </li>
-                                <li>
-                                    <div class="bt">论文检测报告符合学校要求吗</div>
-                                    <span>2020/02/12</span>
-                                    <span>34553</span>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -183,6 +154,23 @@
 <script src="/public/front/js/pages/index.js"></script>
 <script src="/public/front/js/pages/news.js"></script>
 <script src="/public/front/js/pages/news_info.js"></script>
+<!--分享-->
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/button.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+<a class="bshareDiv" onclick="javascript:return false;"></a>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+<!-- End of XMO Insight Tag  -->
+<script type="text/javascript" charset="utf-8">
+    bShare.addEntry({
+        title: "毕业之家",
+        url: "http://biye.com.cn",
+        summary: "毕业之家",
+        pic: ""
+    });
+    $("#news_share").click(function(){
+        $(".newsinfo_fx").toggle();
+    });
+</script>
+
 <script type="text/javascript">
     var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
     document.write(unescape("%3Cspan id='cnzz_stat_icon_1278622305'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1278622305%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
