@@ -1,28 +1,21 @@
+var currentpage=0;//当前页
+var startindex=0;//开始页
+var typeid
+var type_title;
 $(document).ready(function () {
-    NewsList(); //新闻列表接口
-
+    typeid = localStorage.getItem('typeid');
+    type_title = localStorage.getItem('type_title');
+    console.log(typeid)
+    console.log(type_title)
+    NewsList(startindex,typeid)//新闻列表接口
 });
-var GetRequest=function(){
-    var url = location.search; //获取url中"?"符后的字串
-    var theRequest = new Object();
-    if (url.indexOf("?") != -1) {
-        var str = url.substr(1);
-        strs = str.split("&");
-        for(var i = 0; i < strs.length; i ++) {
-            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
-        }
-    }
-    return theRequest;
-}
-console.log( GetRequest().newstypeid)
 
-var currentpage=0;
-function NewsList(currentpage){
+function NewsList(startindex,typeid){
     $(".news_con ul li").remove();
     var data = {
-        "newstypeid": GetRequest().newstypeid,
-        "currentpage": currentpage,
-        "startindex": 0,
+        "newstypeid": typeid,
+        "currentpage": 0,
+        "startindex": startindex,
         "pagesize":20,
         "draw":0
     };
@@ -37,19 +30,22 @@ function NewsList(currentpage){
            // console.log(JSON.stringify(result))
             for (var i = 0; i < result.newscontentlist.length; i++){
                 $(".news_con ul").append(
-                    '<li class="clearfix" data-url="news_info">'+
+                    '<li class="clearfix" data-url="news_info" id="'+result.newscontentlist[i].id+'">'+
                         '<img class="pull-left" src="'+result.newscontentlist[i].thumbs+'" alt="">'+
                         '<div class="pull-right" style="width: 74%;">'+
                             '<div class="title">'+result.newscontentlist[i].title+'</div>'+
                             '<div class="content">'+result.newscontentlist[i].summary+'</div>'+
                                 '<div class="time">'+
-                                    '<span style="margin-right: 30px">'+result.newscontentlist[i].add_time+'</span>'+
+                                    '<span style="margin-right: 30px">'+dateTimeFormat(result.newscontentlist[i].add_time)+'</span>'+
                     '<span>作者：'+result.newscontentlist[i].author+'</span>'+
                                 '</div>'+
                         '</div>'+
                     '</li>'
                 )
             }
+            
+
+
         },
         error: function (errorMsg) {
         }
@@ -60,8 +56,31 @@ $(".page_mess ul li").click(function () {
     $(".news_con ul li").remove();
     $(this).addClass("page_active").siblings().removeClass("page_active");
     var num=$(this).attr("num");
-    NewsList(num);
+    startindex=num;
+    console.log(startindex)
+    NewsList(startindex);
 })
+
 $(".page_next").click(function () {
     $(".page_mess ul li").fadeIn()
 })
+
+//跳转详情
+$(".news_con ul").on('mouseenter', function () {
+    $(".news_con ul li").click(function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var url = $(this).data("url");
+        var id=$(this).attr('id');
+        var s_title=type_title;//二级标题
+        var title=$(this).find(".title").html();//列表标题
+        localStorage.setItem('id', id);
+        localStorage.setItem('s_title', s_title);
+        localStorage.setItem('title', title);
+        var form = document.createElement('form');
+        form.action = url;
+        form.method = 'post';
+        $(document.body).append(form);
+        form.submit();
+    })
+});

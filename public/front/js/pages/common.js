@@ -2,7 +2,7 @@
  * Created by Administrator on 2019/2/19.
  */
 function sendMessageEdit(oJson){
-    console.info(oJson);
+   // console.info(oJson);
     return JSON.stringify(oJson);
 }
 
@@ -146,6 +146,9 @@ function btnEnable(id){
 
 
 
+
+
+
 $(".el-menu-item").on("click", function(e){
     var url = $(this).data("url");
     if(url=='news'){
@@ -165,6 +168,7 @@ $(".el-menu-item").on("click", function(e){
         $(".el-menu-item").eq(4).addClass("is-active").siblings().removeClass('is-active');
        return false;
     }
+
     var form = document.createElement('form');
     form.action = url;
     form.method = 'post';
@@ -172,22 +176,44 @@ $(".el-menu-item").on("click", function(e){
     form.submit();
 });
 
+
 //二级菜单
-
-
 function sec_menu(){
     $(".el-divider").on("click", function(e){
+        e.stopPropagation();
+        e.preventDefault();
         var url = $(this).data("url");
-        var id=$(this).attr('id');
+        var typeid=$(this).attr('id');
+        var type_title=$(this).html();
+        //储存值
+        localStorage.setItem('typeid', typeid);
+        localStorage.setItem('type_title', type_title);
         var form = document.createElement('form');
-        form.action = url+'?newstypeid='+id;
+        // form.action = url+'?newstypeid='+id;
+        form.action = url;
         form.method = 'post';
         $(document.body).append(form);
         form.submit();
+
     });
 }
 
 
+
+
+// $(".el-divider").on("click", function(e){
+//     console.log('侧'+flag)
+//     e.stopPropagation();
+//    // e.preventDefault();
+//     var url = $(this).data("url");
+//     var id=$(this).attr('id');
+//     var form = document.createElement('form');
+//     form.action = url+'?newstypeid='+id;
+//     form.method = 'post';
+//     $(document.body).append(form);
+//     form.submit();
+//     // window.location.reload();
+// });
 
 
 //新闻详情
@@ -231,7 +257,7 @@ $("#zan").click(function () {
         dataType: "json",        //返回数据形式为json
         success: function (result) {
             App.unblockUI('.paper-container');
-            console.info("zan:" + JSON.stringify(result));
+            //console.info("zan:" + JSON.stringify(result));
             $("#zan-number").text(result.zan);
             $.tipsBox({
                 obj: $(that),
@@ -242,7 +268,7 @@ $("#zan").click(function () {
             niceIn($(this));
         },
         error: function (errorMsg) {
-            console.info("zan-error:" + JSON.stringify(errorMsg));
+           // console.info("zan-error:" + JSON.stringify(errorMsg));
             App.unblockUI('.paper-container');
         }
     });

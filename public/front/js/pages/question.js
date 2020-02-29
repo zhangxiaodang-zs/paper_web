@@ -1,26 +1,17 @@
+var currentpage=0;//当前页
+var startindex=0;//开始页
 $(document).ready(function () {
-    NewsList(); //新闻列表接口
-
+    var typeid = localStorage.getItem('typeid');
+    console.log(typeid)
+    NewsList(startindex,typeid)//列表接口
 });
-var GetRequest=function(){
-    var url = location.search; //获取url中"?"符后的字串
-    var theRequest = new Object();
-    if (url.indexOf("?") != -1) {
-        var str = url.substr(1);
-        strs = str.split("&");
-        for(var i = 0; i < strs.length; i ++) {
-            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
-        }
-    }
-    return theRequest;
-}
-console.log( GetRequest().newstypeid)
-var currentpage=0;
-function NewsList(currentpage){
+
+
+function NewsList(currentpage,typeid){
     var data = {
-        "newstypeid": GetRequest().newstypeid,
-        "currentpage": currentpage,
-        "startindex": 0,
+        "newstypeid": typeid,
+        "currentpage": 0,
+        "startindex": startindex,
         "pagesize":20,
         "draw":0
     };
@@ -56,7 +47,9 @@ $(".page_mess ul li").click(function () {
     $(".news_con ul li").remove();
     $(this).addClass("page_active").siblings().removeClass("page_active");
     var num=$(this).attr("num");
-    NewsList(num);
+    startindex=num;
+    console.log(startindex)
+    NewsList(startindex);
 })
 $(".page_next").click(function () {
     $(".page_mess ul li").fadeIn()
