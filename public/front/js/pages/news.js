@@ -1,5 +1,5 @@
 var totalcount;//总页数
-var pagesize=1;//每页显示1条
+var pagesize=5;//每页显示5条
 var startindex=0;//当前页
 var typeid;
 var type_title;
@@ -54,7 +54,7 @@ function NewsList(typeid,startindex,pagesize){
 
 
 // 分页开始
-layui.use('laypage', function(){
+layui.use(['laypage'], function(){
     totalcount = localStorage.getItem('totalcount');
     var laypage = layui.laypage;
     //执行一个laypage实例

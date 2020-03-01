@@ -5,9 +5,6 @@ $(document).ready(function () {
     id = localStorage.getItem('id');
     s_title = localStorage.getItem('s_title');
     title = localStorage.getItem('title');
-    console.log(id)
-    console.log(s_title)
-    console.log(title)
     $(".news_info_nav span").html(s_title+" > "+title);
     question_info(id)//新闻列表接口
     NewsList_about();//获取相关文章
@@ -146,9 +143,15 @@ $("#question_like").click(function () {
         data: sendMessageEdit(data),//将js对象转为字符串
         dataType: "json",        //返回数据形式为json
         success: function (result) {
-            alert("点赞成功");
-            // $("#news_like span").addClass("red");
-            // $("#news_like img").attr('src', '/public/front/images/info_like_active.png');
+            if($("#question_like img").attr("src") == ("/public/front/images/info_like_active.png")){
+                $("#question_like img").attr('src', '/public/front/images/info_like.png');
+                $("#question_like span").removeClass("red");
+
+            }else{
+                $("#question_like span").addClass("red");
+                $("#question_like img").attr('src', '/public/front/images/info_like_active.png');
+
+            }
         },
         error: function (errorMsg) {
         }

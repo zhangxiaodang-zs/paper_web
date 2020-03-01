@@ -1,13 +1,11 @@
 var totalcount;//总页数
-var pagesize=1;//每页显示1条
+var pagesize=5;//每页显示5条
 var startindex=0;//当前页
 var typeid;
 var type_title;
 $(document).ready(function () {
     typeid = localStorage.getItem('typeid');
     type_title = localStorage.getItem('type_title');
-    console.log(typeid)
-    console.log(type_title)
     question_list(typeid,startindex,pagesize)//问题列表接口
 });
 
