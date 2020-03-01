@@ -111,13 +111,13 @@ function NewsList_hot(){
 
 
 //跳转详情
-$(".news_list_hot_r ul,.news_list_hot_l ul").on('mouseenter', function () {
-    $(".news_list_hot_r ul li,.news_list_hot_l ul li").click(function(e) {
+$(".news_list_hot_r ul").on('mouseenter', function () {
+    $(".news_list_hot_r ul li").click(function(e) {
         e.stopPropagation();
         e.preventDefault();
         var url = $(this).data("url");
         var id=$(this).attr('id');
-        var s_title=type_title;//二级标题
+        var s_title="热点新闻";//二级标题
         var title=$(this).find(".bt").html();//列表标题
         localStorage.setItem('id', id);
         localStorage.setItem('s_title', s_title);
@@ -129,7 +129,24 @@ $(".news_list_hot_r ul,.news_list_hot_l ul").on('mouseenter', function () {
         form.submit();
     })
 });
-
+$(".news_list_hot_l ul").on('mouseenter', function () {
+    $(".news_list_hot_l ul li").click(function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var url = $(this).data("url");
+        var id=$(this).attr('id');
+        var s_title="相关文章";//二级标题
+        var title=$(this).find(".bt").html();//列表标题
+        localStorage.setItem('id', id);
+        localStorage.setItem('s_title', s_title);
+        localStorage.setItem('title', title);
+        var form = document.createElement('form');
+        form.action = url;
+        form.method = 'post';
+        $(document.body).append(form);
+        form.submit();
+    })
+});
 //点赞接口
 $("#question_like").click(function () {
     var data = {
