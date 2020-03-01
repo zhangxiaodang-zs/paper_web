@@ -117,7 +117,7 @@ $(".news_list_hot_r ul").on('mouseenter', function () {
         e.preventDefault();
         var url = $(this).data("url");
         var id=$(this).attr('id');
-        var s_title="热点新闻";//二级标题
+        var s_title="热点新闻";
         var title=$(this).find(".bt").html();//列表标题
         localStorage.setItem('id', id);
         localStorage.setItem('s_title', s_title);
@@ -135,7 +135,7 @@ $(".news_list_hot_l ul").on('mouseenter', function () {
         e.preventDefault();
         var url = $(this).data("url");
         var id=$(this).attr('id');
-        var s_title="相关文章";//二级标题
+        var s_title="相关文章";
         var title=$(this).find(".bt").html();//列表标题
         localStorage.setItem('id', id);
         localStorage.setItem('s_title', s_title);
