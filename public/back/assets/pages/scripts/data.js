@@ -450,7 +450,7 @@ function questionTypeDelete(data){
     });
 }
 
-//问题内容获取
+// 问题内容获取
 function questionContentDataGet(data, callback){
     App.blockUI({target: '#lay-out',boxed: true});
     if(data == null){
@@ -460,7 +460,7 @@ function questionContentDataGet(data, callback){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: webUrl + "java/question/content/query",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/questioncontent/content/query",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -481,7 +481,7 @@ function questionContentAdd(data){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: webUrl + "java/question/content/add",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/questioncontent/content/add",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -502,7 +502,7 @@ function questionContentEdit(data){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: webUrl + "java/question/content/edit",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/questioncontent/content/edit",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -523,7 +523,7 @@ function questionContentDelete(data){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: webUrl + "java/question/content/delete",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/questioncontent/content/delete",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -537,13 +537,13 @@ function questionContentDelete(data){
     });
 }
 
-//获取问题详情
+// 获取问题详情
 function getQuestionContent(data,callback){
     $.ajax({
         type:"post",
         contentType:"application/json",
         async:true,        //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url:"http://www.biye.com.cn:9900/java/paper/back/question/content/detail",  //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/questioncontent/content/detail",  //请求发送到TestServlet处
         data:sendMessageEdit(DEFAULT, data),
         dataType:"json",      //返回数据形式为json
         success:function(result){
