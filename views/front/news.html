@@ -5,6 +5,7 @@
 {% block main %}
 <!--<link href="/public/front/plugins/verify/css/verify.css" rel="stylesheet">-->
 <link href="/public/front/plugins/verify1/jigsaw.css" rel="stylesheet">
+<link rel="stylesheet" href="/public/front/js/plugins/layui/css/layui.css" media="all">
 <style>
     .help-block{
         line-height: 1!important;
@@ -25,6 +26,7 @@
         display: none;
     }
 </style>
+<div id="app">
     <div class="main row" style="margin-top:0.2rem">
         <div class="container_center">
             <div class="row">
@@ -42,8 +44,7 @@
 							<li class="el-menu-item is-active" data-url="news">
 								<span data-url="news">行业新闻</span>
                                 <div class="hy_news item-check"></div>
-
-							</li>
+                            </li>
                             <li class="el-menu-item" data-url="question">
 								<span>常见问题</span>
                                 <div class="question_news item-search">
@@ -57,69 +58,37 @@
                     </div>
                 </div>
                 <div class="col-lg-10 news_fy">
-						<div class="news_con" style="background-color: white;">
-							<ul>
+                    <router-view> </router-view>
+                        <div class="news_con" style="background-color: white;">
+                            <ul>
 
-							</ul>
-						</div>
-                    <!--分页信息-->
-                    <div class="page_mess">
-                        <ul>
-                            <li num="0" class="page_active">1</li>
-                            <li num="1">2</li>
-                            <li num="2">3</li>
-                            <li num="3">4</li>
-                            <li num="4">5</li>
-                            <li num="5">6</li>
-                            <li num="6">7</li>
-                            <li num="7">8</li>
-                            <li num="8">9</li>
-                            <li num="9">10</li>
+                            </ul>
+                        </div>
 
-                            <div num="" class="page_next">></div>
-                        </ul>
-                    </div>
+                    <!--分页开始-->
+                    <div id="test1"></div>
+                    <!--分页结束-->
+
                 </div>
             </div>
         </div>
         </div>
     </div>
     </div>
-    <!--处理中-->
-    <div class="modal fade" id="loading" role="basic" aria-hidden="true" data-backdrop="static">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img src="/public/front/img/loading-spinner-grey.gif" alt="" class="loading">
-                    <span> &nbsp;&nbsp;正在处理中... </span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--微信登录弹框-->
-    <div id="login-modal" class="modal fade" tabindex="-1" data-width="400" aria-hidden="true" data-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title">微信登录</h4>
-                </div>
-                <div class="modal-body" style="text-align: center; text-align: -webkit-center">
-                    <iframe id="qrcode"  scrolling="no" width="300" height="400" frameborder="0" allowtransparency="true" sandbox="allow-scripts allow-top-navigation allow-same-origin"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 
-
-
-
-
+<!--<script type="text/javascript" src="/public/front/js/jquery-1.9.1.min.js"></script>-->
 <script src="/public/front/plugins/zan/zan.js"></script>
+<script src="/public/front/js/plugins/layui/layui.js"></script>
+
+<!--<script src="/node_modules/vue/dist/vue.js"></script>-->
+<!--<script src="/node_modules/vue-router/dist/vue-router.js"></script>-->
+<!--<script src="/public/front/js/plugins/layui/lay/modules/laypage.js"></script>-->
 <!--<script src="/public/front/plugins/verify/js/verify.js"></script>-->
 <script src="/public/front/plugins/verify1/jigsaw.js"></script>
 <script src="/public/front/js/pages/index.js"></script>
 <script src="/public/front/js/pages/news.js"></script>
+<!--<script src="/public/front/js/pages/main.js"></script>-->
 <script type="text/javascript">
     var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
     document.write(unescape("%3Cspan id='cnzz_stat_icon_1278622305'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1278622305%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));

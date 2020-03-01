@@ -180,8 +180,6 @@ $(".hy_news").on('click', '.el-divider', function (e) {
     //储存值
     localStorage.setItem('typeid', typeid);
     localStorage.setItem('type_title', type_title);
-   // NewsList(0,typeid)//新闻列表接口
-    //return false;
     var form = document.createElement('form');
     form.action = url;
     form.method = 'post';
@@ -211,8 +209,6 @@ $(".el-divider").on('click',function (e) {
     $(document.body).append(form);
     form.submit();
 });
-
-
 
 
 $("#login-btn").on("click", function(){

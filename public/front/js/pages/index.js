@@ -27,8 +27,11 @@ function menus(){
         dataType: "json",        //返回数据形式为json
         success: function (result) {
             for (var i = 0; i < result.newslist.length; i++){
+                var list=[];
+
                 $(".hy_news").append(
-                    ' <div class="el-divider" id="'+result.newslist[i].newstypeid+'" data-url="news">'+result.newslist[i].newstype+'</div>'
+                      ' <div class="el-divider" id="'+result.newslist[i].newstypeid+'" data-url="news">'+result.newslist[i].newstype+'</div>'
+
                 )
             }
             for (var i = 0; i < result.quelist.length; i++){

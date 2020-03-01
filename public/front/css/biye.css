@@ -18,6 +18,16 @@ html{
 .mt-10{margin-top: 10px}
 .ml-8{margin-left: 8px}
 .red{color: red}
+.text-clamp3{
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.color-676a6c{color: #676a6c}
 /*————————main.css——————————————*/
 /*网站顶部*/
 .top{
@@ -515,11 +525,11 @@ html{
 	font-size: 14px;
 	margin-top: 10px;
 	line-height: 25px;
-	text-indent: 10px;
 }
 .question_con ul li .time{
 	font-size: 14px;
 	color: #808080;
+    margin-top: 5px;
 }
 /* 行业新闻 */
 .news_con{
@@ -795,3 +805,45 @@ html{
     display: none;
 }
 
+/*分页样式*/
+.layui-laypage a, .layui-laypage span {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+     padding: 0 !important;
+    text-align: center;
+    width: 43px !important;
+    height: 43px !important;
+    line-height: 43px !important;
+    margin: 0 11px 5px 0 !important;
+    background-color: #fff;
+    color: #333;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+    border: solid 1px #dcdcdc !important;
+}
+.layui-laypage .layui-laypage-curr .layui-laypage-em{
+    border-radius: 8px !important;
+}
+#add-num{
+    display:none;
+}
+#add-num .add-animation{
+    color: #000;
+    position:absolute;
+    top:-15px;
+    left: 10px;
+    font-size: 15px;
+    opacity: 0;
+    filter: Alpha(opacity=0);
+    -moz-opacity:0;
+    animation: mypraise 0.5s ;
+    -moz-animation: mypraise 0.5s ;	/* Firefox */
+    -webkit-animation: mypraise 0.5s ;	/* Safari 和 Chrome */
+    -o-animation: mypraise 0.5s ;	/* Opera */
+    font-style:normal;
+}
+.praise .hover , #add-num .add-animation.hover , #praise-txt.hover{
+    color: #EB4F38;
+}

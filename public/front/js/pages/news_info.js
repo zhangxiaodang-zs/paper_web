@@ -143,9 +143,18 @@ $("#news_like").click(function () {
         data: sendMessageEdit(data),//将js对象转为字符串
         dataType: "json",        //返回数据形式为json
         success: function (result) {
-            alert("点赞成功");
-            // $("#news_like span").addClass("red");
-            // $("#news_like img").attr('src', '/public/front/images/info_like_active.png');
+            if($("#news_like img").attr("src") == ("/public/front/images/info_like_active.png")){
+                $("#news_like img").attr('src', '/public/front/images/info_like.png');
+                $("#news_like span").removeClass("red");
+
+            }else{
+                $("#news_like span").addClass("red");
+                $("#news_like img").attr('src', '/public/front/images/info_like_active.png');
+
+            }
+           // alert("点赞成功");676a6c
+
+
         },
         error: function (errorMsg) {
         }

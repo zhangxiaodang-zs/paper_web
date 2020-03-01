@@ -3,6 +3,8 @@
 
 <!-- 以下部分页面嵌套到layout的block main和endblock之间 -->
 {% block main %}
+
+<link rel="stylesheet" href="/public/front/js/plugins/layui/css/layui.css" media="all">
 	<style>
 		.item-check{
 			display: none;
@@ -45,37 +47,14 @@
                 <div class="col-lg-10"  style="margin-bottom: 20px" >
                     <div class="question_con" style="padding: 20px 50px;background-color: white;">
 						<ul>
-<!--							<li data-url="news_info">-->
-<!--								<div class="title">论文查重的主要算法</div>-->
-<!--								<div class="content">新的一年毕业季就要到来了，大家都在准备毕业论文了，临毕业的学子都知道论文到最后会有一个论文查重的过程。</div>-->
-<!--								<div class="time">-->
-<!--									<span>2020-02-12  23:23:14</span>-->
-<!--									<span>作者：毕业之家</span>-->
-<!--								</div>-->
-<!--							</li>-->
 
 						</ul>
-						
-                        <!-- <div class="panel-group accordion" id="accordion1">
-                        </div> -->
+                        <!--分页开始-->
+                        <div id="test2"></div>
+                        <!--分页结束-->
                     </div>
-                    <!--分页信息-->
-                    <div class="page_mess">
-                        <ul>
-                            <li num="0" class="page_active">1</li>
-                            <li num="1">2</li>
-                            <li num="2">3</li>
-                            <li num="3">4</li>
-                            <li num="4">5</li>
-                            <li num="5">6</li>
-                            <li num="6">7</li>
-                            <li num="7">8</li>
-                            <li num="8">9</li>
-                            <li num="9">10</li>
 
-                            <div num="" class="page_next">></div>
-                        </ul>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -110,6 +89,7 @@
 
 <script src="/public/front/plugins/counterup/jquery.counterup.min.js"></script>
 <script src="/public/front/plugins/counterup/jquery.waypoints.min.js"></script>
+<script src="/public/front/js/plugins/layui/layui.js"></script>
 <script src="/public/front/plugins/zan/zan.js"></script>
 <script src="/public/front/js/pages/index.js"></script>
 <script src="/public/front/js/pages/question.js"></script>
