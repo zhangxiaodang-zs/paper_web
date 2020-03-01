@@ -179,7 +179,7 @@ function newsTypeDataGet(data, callback){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: "http://127.0.0.1:9000/java/paper/back/news/type/query",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/news/type/query",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -200,7 +200,7 @@ function newsTypeAdd(data){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: "http://127.0.0.1:9000/java/paper/back/news/type/add",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/news/type/add",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -221,7 +221,7 @@ function newsTypeEdit(data){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: "http://127.0.0.1:9000/java/paper/back/news/type/edit",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/news/type/edit",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -242,7 +242,7 @@ function newsTypeDelete(data){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: "http://127.0.0.1:9000/java/paper/back/news/type/delete",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/news/type/delete",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -266,7 +266,7 @@ function newsContentDataGet(data, callback){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: webUrl + "new/news/content/query",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/newscontent/content/query",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -287,7 +287,7 @@ function newsContentAdd(data){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: webUrl + "new/news/content/add",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/newscontent/content/add",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -308,7 +308,7 @@ function newsContentEdit(data){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: webUrl + "new/news/content/edit",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/newscontent/content/edit",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -329,7 +329,7 @@ function newsContentDelete(data){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: webUrl + "new/news/content/delete",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/newscontent/content/delete",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -349,7 +349,7 @@ function getNewsContent(data,callback){
         type:"post",
         contentType:"application/json",
         async:true,        //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url:webUrl + "new/news/content/detail",  //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/newscontent/content/detail",  //请求发送到TestServlet处
         data:sendMessageEdit(DEFAULT, data),
         dataType:"json",      //返回数据形式为json
         success:function(result){
@@ -373,7 +373,7 @@ function questionTypeDataGet(data, callback){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: "http://127.0.0.1:9000/java/paper/back/question/type/query",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/question/type/query",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -394,7 +394,7 @@ function questionTypeAdd(data){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: "http://127.0.0.1:9000/java/paper/back/question/type/add",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/question/type/add",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -415,7 +415,7 @@ function questionTypeEdit(data){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: "http://127.0.0.1:9000/java/paper/back/question/type/edit",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/question/type/edit",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -436,7 +436,7 @@ function questionTypeDelete(data){
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: "http://127.0.0.1:9000/java/paper/back/question/type/delete",    //请求发送到TestServlet处
+        url: "http://www.biye.com.cn:9900/java/paper/back/question/type/delete",    //请求发送到TestServlet处
         data: sendMessageEdit(DEFAULT, data),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
@@ -543,7 +543,7 @@ function getQuestionContent(data,callback){
         type:"post",
         contentType:"application/json",
         async:true,        //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url:webUrl + "java/question/content/detail",  //请求发送到TestServlet处
+        url:"http://www.biye.com.cn:9900/java/paper/back/question/content/detail",  //请求发送到TestServlet处
         data:sendMessageEdit(DEFAULT, data),
         dataType:"json",      //返回数据形式为json
         success:function(result){

@@ -31,7 +31,7 @@ if (App.isAngularJsApp() === false) {
             ]],
             autoHeightEnabled: false,
             initialFrameHeight: 200,
-            serverUrl: 'http://127.0.0.1:9000/java/paper/back/newscontent/content/uploadfile',  //此处请求服务器的地址
+            serverUrl: 'http://www.biye.com.cn:9900/java/paper/back/newscontent/content/uploadfile',  //此处请求服务器的地址
             imageFieldName: "upfile",
             imageUrlPrefix: '',
             imageActionName: 'ajaxUpload',
@@ -242,7 +242,7 @@ var NewsContentEdit = function() {
                     formData.append('upfile', fileInfo);
                     $.ajax({
                         type: 'POST',
-                        url: "http://127.0.0.1:9000/java/paper/back/newscontent/content/uploadfile",
+                        url: "http://www.biye.com.cn:9900/java/paper/back/newscontent/content/uploadfile",
                         data: formData,
                         dataType: 'json',
                         contentType: false,
