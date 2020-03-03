@@ -67,7 +67,7 @@ var PaperTable = function () {
                                 var differ = timeDiffer(row.check_time);
                                 edit += '<br>预计等待时间' + differ;
                             }else{
-                                edit += '<br>已超过40分钟，建议重新提交';
+                                edit += '<br>已超过10分钟，建议重新提交';
                             }
                         }
                         return edit;
@@ -184,7 +184,7 @@ function timeLeft(subtime){
 }
 function timeDiffer(subtime) {
     var left =  (new Date()) - (new Date(subtime.replace(/-/g,  "/")));
-    var leftTime = 40 * 60 * 1000 - left;
+    var leftTime = 10 * 60 * 1000 - left;
     var days = parseInt(leftTime / 1000 / 60 / 60 / 24 , 10); //计算剩余的天数
     var hours = parseInt(leftTime / 1000 / 60 / 60 % 24 , 10); //计算剩余的小时
     var minutes = parseInt(leftTime / 1000 / 60 % 60, 10);//计算剩余的分钟
