@@ -19,7 +19,6 @@ html{
 .ml-8{margin-left: 8px}
 .red{color: red}
 .text-clamp3{
-    text-overflow: -o-ellipsis-lastline;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -352,7 +351,7 @@ html{
     margin: 0;
 }
 .el-button p span{
-    font-size: 16px;
+    font-size: 14px;
     color: #262626;
     padding: 0;
     margin: 0;
@@ -596,7 +595,8 @@ html{
 .foot .foot_link{
     display: flex;
 	margin: 0 auto;
-    width: 80%;
+    /*width: 80%;*/
+    width: 70%;
 	margin-bottom: 30px;
 }
 
@@ -744,7 +744,7 @@ html{
     margin-top: 20px;
 }
 .news_list_hot_l ul li,.news_list_hot_r ul li{
-    width: 95%;
+    width: 98%;
     cursor: pointer;
     list-style-type: none;
     font-size: 14px;
@@ -753,7 +753,7 @@ html{
 }
 .news_list_hot_l ul li .bt,.news_list_hot_r ul li .bt{
     float: left;
-    width: 50%;
+    width: 70%;
     overflow: hidden;
 }
 .news_list_hot ul li:hover{

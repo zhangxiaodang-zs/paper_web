@@ -60,7 +60,7 @@ function NewsList_about(){
                         $(".news_list_hot_l ul").append(
                             '<li id="'+result.questioncontentlist[i].id+'" data-url="question_info">'+
                                 '<div class="bt">'+result.questioncontentlist[i].title+'</div>'+
-                                '<span style="margin-right: 20px">'+dateTimeFormat(result.questioncontentlist[i].add_time)+'</span>'+
+                                '<span style="margin-right: 20px">'+data_space(dateTimeFormat(result.questioncontentlist[i].add_time))+'</span>'+
                             ' <span>'+result.questioncontentlist[i].readtimes+'</span>'+
                             '</li>'
                         )
@@ -94,7 +94,7 @@ function NewsList_hot(){
                         $(".news_list_hot_r ul").append(
                             '<li id="'+result.newscontentlist[i].id+'" data-url="news_info">'+
                             '<div class="bt">'+result.newscontentlist[i].title+'</div>'+
-                            '<span style="margin-right: 20px">'+dateTimeFormat(result.newscontentlist[i].add_time)+'</span>'+
+                            '<span style="margin-right: 20px">'+data_space(dateTimeFormat(result.newscontentlist[i].add_time))+'</span>'+
                             ' <span>'+result.newscontentlist[i].readtimes+'</span>'+
                             '</li>'
                         )
@@ -178,3 +178,8 @@ $("#news_like").click(function () {
         }
     });
 })
+
+//截取时间空格以后
+function data_space(test) {
+    return test.substr(0,test.indexOf(" "));
+}

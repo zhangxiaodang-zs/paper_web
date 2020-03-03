@@ -287,7 +287,7 @@ function vipTimeDisplay(){
     }
 }
 
-//新闻列表接口
+
 
 /**————————————————————————————————适配——————————————————————————————————————**/
 (function (doc, win) {
@@ -308,3 +308,25 @@ function vipTimeDisplay(){
     win.addEventListener(resizeEvt, recalc, false);
 
 })(document, window);
+
+//清除null字眼
+function clearNull(field,content){
+    if(field&&field!='null'){
+        return field;
+    }else{
+        return content;
+    }
+}
+//标题或者内容截取
+function InterceptField(field,contnet,num){
+    if(field&&field!='null'){
+        if(field.length>num){
+            field = field.substring(0,(num-1))+'...';
+            return field
+        }else{
+            return field
+        }
+    }else{
+        return contnet
+    }
+}
