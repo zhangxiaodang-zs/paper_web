@@ -116,7 +116,7 @@
         <div class="container_center">
             <div class="biye-logo">
                 <div>
-                    <a href="http://www.biye.com.cn/" target="_blank">
+                    <a href="javascript:;" id="logo">
                         <img src="/public/front/images/logo.png">
                     </a>
                 </div>
@@ -389,6 +389,14 @@
     $("#share").click(function(){
         $(".main_fx").toggle();
     });
+    //主页logo
+    $("#logo").on("click", function(){
+        var form = document.createElement('form');
+        form.action = "index";
+        form.method = 'post';
+        $(document.body).append(form);
+        form.submit();
+    })
 </script>
 </body>
 </html>

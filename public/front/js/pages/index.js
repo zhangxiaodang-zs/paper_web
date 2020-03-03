@@ -129,6 +129,7 @@ $("#upload-file").change(function(){
             console.info(result);
             if(result.code == 200){
                 $("#content").val(result.content);
+                $("#content").trigger("input");
             }else{
                 alertDialog(result.message);
             }
@@ -433,3 +434,15 @@ var CardSubmit = function() {
         }
     };
 }();
+
+$("#paste_content").on("input propertychange", function(){
+    var num = $("#past_num");
+    var curLength = $(this).val().length;
+    num.text(curLength);
+});
+
+$("#content").on("input propertychange", function(){
+    var num = $("#num");
+    var curLength = $(this).val().length;
+    num.text(curLength);
+});

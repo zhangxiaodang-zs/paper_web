@@ -146,10 +146,15 @@
                                                 <div class="form-group row">
                                                     <label class="control-label input-title"><span class="required"> * </span>内容</label>
                                                     <div class="input-content">
-                                                <textarea class="el-textarea"
+                                                        <textarea class="el-textarea"
                                                           placeholder="内容字数1000~10万字。提交内容建议去除封面、目录、附录，仅提交正文"
                                                           name="paste_content" style="min-height: 180px;"
                                                           id="paste_content"></textarea>
+                                                        <div style="text-align:right;color:#666;">
+                                                            您已输入
+                                                            <strong style="color:red;" id="past_num">0</strong>
+                                                            字
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -168,41 +173,38 @@
                                                 <div class="form-group row">
                                                     <label class="control-label input-title"></label>
                                                     <div class="input-content">
-                                                <textarea class="el-textarea" placeholder="" name="content"
+                                                        <textarea class="el-textarea" placeholder="" name="content"
                                                           style="min-height: 180px;" id="content" readonly></textarea>
+                                                        <div style="text-align:right;color:#666;">
+                                                            您已输入
+                                                            <strong style="color:red;" id="num">0</strong>
+                                                            字
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group row">
+                                        <div class="form-group row" style="margin-top: -30px">
                                             <label class="control-label input-title"><span
                                                     class="required"> * </span>检测方式</label>
                                             <div class="input-content check-type">
                                                 {%if free == 'false' || !free %}
                                                 <button class="el-button el-button--default el-button--small is-plain el-active"
                                                         type="button" id="free-btn" data-type="0">
-                                            <span>
-<!--                                                <i class="el-icon-medal-1"></i> -->首次免费试用
-                                            </span>
+                                                    <span>
+        <!--                                                <i class="el-icon-medal-1"></i> -->首次免费试用
+                                                    </span>
                                                 </button>
                                                 {% endif %}
                                                 <div class="btn-group">
                                                     <button class="el-button el-button--default el-button--small is-plain"
                                                             type="button" id="pay-btn" data-type="1">
                                                         <p>
-                                                            <span>3元/包月</span>&nbsp;&nbsp;
+                                                            <span>20元/包月</span>&nbsp;&nbsp;
                                                             <!--                                                    <i class="el-icon-collection-tag"></i> 付费包月-->
                                                         </p>
                                                     </button>
                                                     <div class="dropdown-menu paymenu" style="width: 600px; text-align: center">
-                                                        <div class="row">
-                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs4">
-                                                                原价：<span><s>￥30.00/月</s></span></div>
-                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs4">
-                                                                折扣：<span>1折（限时打折）</span></div>
-                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs4">应付总额：<span
-                                                                    class="pay-title" style="color:red">￥3.00/月</span></div>
-                                                        </div>
                                                         <div class="row" style="margin-top: 10px">
                                                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="wpay"
                                                                  style="cursor: pointer">
