@@ -38,8 +38,8 @@
         var free = '{{ free }}'
         var code = '{{ code }}'
         var endtime = '{{ endtime }}'
-        var zan = '{{ zan }}'
         var visit = '{{ visit }}'
+        var thumbup = '{{ thumbup }}'
         var login = 0;
         if (!openid) {
             login = 0;
@@ -106,6 +106,17 @@
         .di-n {
             display: none;
         }
+        #service{width:161px;height:290px;position:fixed;top:350px;left:0px; z-index:100;}
+        #service li{width:161px;height:60px;}
+        #service li img{float:left;}
+        #service li a{height:49px;float:left;display:block;min-width:47px;max-width:161px;}
+        #service li a .shows{display:block;}
+        #service li a .hides{margin-right:-143px;cursor:pointer;cursor:hand;}
+        #service li a.weixin_area .hides{display:none;position:absolute;right:143px;}
+        #service li a.weixin_area .weixin{display:none;position:absolute;right:0;top:48px}
+        #p2{width:47px;height:49px;float:left}
+        #p1{width:47px;height:49px;float:left}
+        a:hover{text-decoration: none}
     </style>
 </head>
 <body>
@@ -136,8 +147,6 @@
                         <img src="{{ headimgurl }}">
                     </div>
                     {% endif %}
-
-
                 </div>
             </div>
         </div>
@@ -207,7 +216,7 @@
                                     <p>访问量</p>
                                 </div>
                                 <div style="margin-top: 20px;">
-                                    <p data-counter="counterup" data-value="{{ zan }}" id="zan-number">{{ zan }}</p>
+                                    <p data-counter="counterup" data-value="0" id="zan-number">0</p>
                                     <p>点赞数</p>
                                 </div>
                             </div>
@@ -217,9 +226,12 @@
                          <div style="margin-top: 20px; cursor: pointer;" id="share">
                              <img src="/public/front/images/share.png">
                          </div>
-
+                         {%if thumbup == 'false' || !thumbup %}
                          <div style="margin-top: 20px; cursor: pointer;" id="zan"><img src="/public/front/images/zan.png"></div>
-
+                         {% endif %}
+                         {%if thumbup == 'true' %}
+                         <div style="margin-top: 20px; cursor: pointer;"><img src="/public/front/images/zan-b.png"></div>
+                         {% endif %}
                      </div>
                  </div>
 
@@ -298,10 +310,27 @@
 
 </div>
 
+<div id="service">
+    <ul>
+        <li>
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2016925053&site=qq&menu=yes">
+                <div class="hides" style="width:161px;display:none;" id="qq">
+                    <div class="hides" id="p1">
+                        <img src="/public/front/images/ll04.png">
+                    </div>
+                    <div class="hides" id="p2"><span style="color:#FFF;font-size:13px"></span>
+                    </div>
+                </div>
+                <img src="/public/front/images/l04.png" width="47" height="49" class="shows" />
+            </a>
+        </li>
+    </ul>
+</div>
+
 <!--<script src="/node_modules/vue/dist/vue.js"></script>-->
 <!--<script src="/node_modules/vue-router/dist/vue-router.js"></script>-->
 <script src="/public/front/js/jquery.liMarquee.js"></script>
-<script src="/public/front/plugins/counterup/jquery.counterup.min.js"></script>
+<script src="/public/front/plugins/counterup/jquery.counterup.js"></script>
 <script src="/public/front/plugins/counterup/jquery.waypoints.min.js"></script>
 <script src="/public/front/js/pages/common.js"></script>
 <!--分享-->
@@ -323,6 +352,8 @@
         vipTimeDisplay();
         $('.dowebok').liMarquee();
         recentOrderGet();
+        //获取点赞数
+        thumbupGet();
         //设定滚动部分的宽度
         var width = $(".recent-order").width() - 130;
         $(".roll-div").width(width);
@@ -334,6 +365,24 @@
             $(document.body).append(form);
             form.submit();
         }
+        $("#service a").hover(function() {
+            if ($(this).prop("className") == "weixin_area") {
+                $(this).children("img.hides").show();
+            } else {
+                $(this).children("div.hides").show();
+                $(this).children("img.shows").hide();
+                $(this).children("div.hides").animate({marginRight: '0px'}, '0');
+            }
+        }, function() {
+            if ($(this).prop("className") == "weixin_area") {
+                $(this).children("img.hides").hide();
+            } else {
+                $(this).children("div.hides").animate({marginRight: '-163px'}, 0, function() {
+                    $(this).hide();
+                    $(this).next("img.shows").show();
+                });
+            }
+        });
     });
 
     //获取近期订单
@@ -365,6 +414,26 @@
         });
     }
 
+    //获取近期订单
+    function thumbupGet() {
+        $.ajax({
+            type: "post",
+            contentType: "application/json",
+            async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+            url: webUrl + "paper/login/thumbupnum",    //请求发送到TestServlet处
+            data: sendMessageEdit({}),
+            dataType: "json",        //返回数据形式为json
+            success: function (result) {
+                console.info("thumbupGet-error:" + JSON.stringify(result));
+                $("#zan-number").attr("data-value", result.thumbupnum);
+                //$("#zan-number").text(result.thumbupnum);
+                $('#zan-number').counterUp();
+            },
+            error: function (errorMsg) {
+                console.info("thumbupGet-error:" + JSON.stringify(errorMsg));
+            }
+        });
+    }
     //首页banner经过效果
     $(function () {
         $('.head-brand .brand-img').mouseover(function () {

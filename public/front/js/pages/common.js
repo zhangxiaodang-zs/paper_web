@@ -230,6 +230,9 @@ $("#zan").click(function () {
         $("#login-modal").modal('show');
         return;
     }
+    if(thumbup == 'true'){
+        return;
+    }
     var that = this;
     //点赞处理
     App.blockUI({target:'.paper-container',boxed: true});
@@ -237,13 +240,17 @@ $("#zan").click(function () {
         type: "post",
         contentType: "application/json",
         async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url: "/zan",    //请求发送到TestServlet处
-        data: sendMessageEdit({}),
+        url: webUrl + "paper/login/updthumbup",    //请求发送到TestServlet处
+        data: sendMessageEdit({openid: openid}),
         dataType: "json",        //返回数据形式为json
         success: function (result) {
             App.unblockUI('.paper-container');
             //console.info("zan:" + JSON.stringify(result));
-            $("#zan-number").text(result.zan);
+            $("#zan-number").attr("data-value", result.thumbupnum);
+            $("#zan-number").text(result.thumbupnum);
+            thumbup = 'true';
+            $("#zan > img").attr("src", "/public/front/images/zan-b.png")
+            userInfoSave();
             $.tipsBox({
                 obj: $(that),
                 str: "+1",
@@ -260,7 +267,7 @@ $("#zan").click(function () {
 });
 
 function userInfoSave(){
-    var data = {vip: vip, free: free, endtime: endtime};
+    var data = {vip: vip, free: free, endtime: endtime, thumbup: thumbup};
     $.ajax({
         type: "post",
         contentType: "application/json",

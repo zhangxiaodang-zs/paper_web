@@ -8,18 +8,14 @@ const logger = log4js.logger('http');
 var redis = require("redis");
 var client = redis.createClient("6379", "47.104.231.221");//"47.104.231.221");
 var visit = 0;
-var zan = 0;
 
 router.all('*', function(req, res, next){
-    logger.info("获取访问量和点赞数");
+    logger.info("获取访问量");
     client.get(`visit`, function (err, data) {
         logger.info(err);
         logger.info(data);
         visit = Number(data);
-        client.get('zan', function (err, data) {
-            zan = Number(data);
-            next();
-        });
+        next();
     });
 });
 
@@ -29,8 +25,7 @@ router.get('/',function(req,res,next){
     client.set('visit', visit + 1, function (err, data) {
         logger.info("访问量+1")
         res.render('front/index',{
-            visit: visit + 1,
-            zan: zan
+            visit: visit + 1
         });
     })
 
@@ -45,6 +40,7 @@ router.get('/login', function(req, res, next){
     req.session["free"] = req.query.free;
     req.session["code"] = req.query.code;
     req.session["endtime"] = req.query.endtime;
+    req.session["thumbup"] = req.query.thumbup;
     res.render('front/index',{
         openid: req.query.openid,
         nickname: req.query.nickname,
@@ -54,7 +50,7 @@ router.get('/login', function(req, res, next){
         code: req.query.code,
         endtime: req.query.endtime,
         visit: visit,
-        zan: zan
+        thumbup: req.query.thumbup
     });
 });
 
@@ -70,7 +66,7 @@ router.post('/index',function(req,res,next){
         code: req.session["code"],
         endtime: req.session["endtime"],
         visit: visit,
-        zan: zan
+        thumbup: req.session["thumbup"]
     });
 });
 
@@ -85,7 +81,7 @@ router.post('/download',function(req,res,next){
         code: req.session["code"],
         endtime: req.session["endtime"],
         visit: visit,
-        zan: zan
+        thumbup: req.session["thumbup"]
     });
 });
 
@@ -100,7 +96,7 @@ router.post('/brand',function(req,res,next){
         code: req.session["code"],
         endtime: req.session["endtime"],
         visit: visit,
-        zan: zan
+        thumbup: req.session["thumbup"]
     });
 });
 
@@ -115,7 +111,7 @@ router.post('/question',function(req,res,next){
         code: req.session["code"],
         endtime: req.session["endtime"],
         visit: visit,
-        zan: zan
+        thumbup: req.session["thumbup"]
     });
 });
 //联系我们
@@ -130,7 +126,7 @@ router.post('/contact',function(req,res,next){
         code: req.session["code"],
         endtime: req.session["endtime"],
         visit: visit,
-        zan: zan
+        thumbup: req.session["thumbup"]
     });
 });
 //行业新闻
@@ -145,7 +141,7 @@ router.post('/news',function(req,res,next){
         code: req.session["code"],
         endtime: req.session["endtime"],
         visit: visit,
-        zan: zan
+        thumbup: req.session["thumbup"]
     });
 });
 //新闻详情
@@ -160,7 +156,7 @@ router.post('/news_info',function(req,res,next){
         code: req.session["code"],
         endtime: req.session["endtime"],
         visit: visit,
-        zan: zan
+        thumbup: req.session["thumbup"]
     });
 });
 //问题详情
@@ -175,7 +171,7 @@ router.post('/question_info',function(req,res,next){
         code: req.session["code"],
         endtime: req.session["endtime"],
         visit: visit,
-        zan: zan
+        thumbup: req.session["thumbup"]
     });
 });
 router.post('/user/save', function(req,res, next){
@@ -193,17 +189,12 @@ router.post('/user/save', function(req,res, next){
     if(endtime != undefined) {
         req.session["endtime"] = endtime;
     }
+    var thumbup = req.body.thumbup;
+    if(thumbup != undefined) {
+        req.session["thumbup"] = thumbup;
+    }
     res.send("");
 });
-router.post('/zan', function(req,res, next){
-    logger.info("增加点赞量");
-    var zanTemp = zan + 1;
 
-    client.set('zan', zanTemp, function (err, data) {
-        res.send({
-            zan: zanTemp
-        })
-    });
-});
 
 module.exports = router;
