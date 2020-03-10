@@ -6,7 +6,8 @@ var router = express.Router();
 var log4js = require("./../../log");
 const logger = log4js.logger('http');
 var redis = require("redis");
-var client = redis.createClient("6379", "47.104.231.221");//"47.104.231.221");
+var client = redis.createClient("6379", "127.0.0.1");//"47.104.231.221");
+client.auth("biye@a?");
 var visit = 0;
 
 router.all('*', function(req, res, next){
