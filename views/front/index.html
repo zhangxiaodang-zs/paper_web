@@ -65,13 +65,16 @@
         border-color: #a1cf40;
         color: #262626;
     }
-    .item-check{
+
+    .item-check {
         display: none;
     }
-    .item-search{
+
+    .item-search {
         display: none;
     }
-    .item_contact{
+
+    .item_contact {
         display: none;
     }
 
@@ -147,9 +150,9 @@
                                                     <label class="control-label input-title"><span class="required"> * </span>内容</label>
                                                     <div class="input-content">
                                                         <textarea class="el-textarea"
-                                                          placeholder="内容字数1000~10万字。提交内容建议去除封面、目录、附录，仅提交正文"
-                                                          name="paste_content" style="min-height: 180px;"
-                                                          id="paste_content"></textarea>
+                                                                  placeholder="内容字数1000~10万字。提交内容建议去除封面、目录、附录，仅提交正文"
+                                                                  name="paste_content" style="min-height: 180px;"
+                                                                  id="paste_content"></textarea>
                                                         <div style="text-align:right;color:#666;">
                                                             您已输入
                                                             <strong style="color:red;" id="past_num">0</strong>
@@ -174,7 +177,7 @@
                                                     <label class="control-label input-title"></label>
                                                     <div class="input-content">
                                                         <textarea class="el-textarea" placeholder="" name="content"
-                                                          style="min-height: 180px;" id="content" readonly></textarea>
+                                                                  style="min-height: 180px;" id="content" readonly></textarea>
                                                         <div style="text-align:right;color:#666;">
                                                             您已输入
                                                             <strong style="color:red;" id="num">0</strong>
@@ -196,12 +199,13 @@
                                                     </span>
                                                 </button>
                                                 {% endif %}
+                                                <!-- 20元/包月-->
                                                 <div class="btn-group">
                                                     <button class="el-button el-button--default el-button--small is-plain"
                                                             type="button" id="pay-btn" data-type="1">
                                                         <p>
                                                             <span>20元/包月</span>&nbsp;&nbsp;
-                                                            <!--                                                    <i class="el-icon-collection-tag"></i> 付费包月-->
+
                                                         </p>
                                                     </button>
                                                     <div class="dropdown-menu paymenu" style="width: 600px; text-align: center">
@@ -227,13 +231,141 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <!-- 3元/3日-->
+<!--                                                <div class="btn-group">-->
+<!--                                                    <button class="el-button el-button&#45;&#45;default el-button&#45;&#45;small is-plain"-->
+<!--                                                            type="button" id="pay-btn" data-type="1">-->
+<!--                                                        <p>-->
+<!--                                                            <span>3元/3日</span>&nbsp;&nbsp;-->
+
+<!--                                                        </p>-->
+<!--                                                    </button>-->
+<!--                                                    <div class="dropdown-menu paymenu" style="width: 600px; text-align: center">-->
+<!--                                                        <div class="row" style="margin-top: 10px">-->
+<!--                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="wpay"-->
+<!--                                                                 style="cursor: pointer">-->
+<!--                                                                <img src="/public/front/images/wchat.png"-->
+<!--                                                                     style="width: 50px; height: 50px">-->
+<!--                                                                <div class="pay-title">微信支付</div>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="alipay"-->
+<!--                                                                 style="cursor: pointer">-->
+<!--                                                                <img src="/public/front/images/zfb.png"-->
+<!--                                                                     style="width: 50px; height: 50px">-->
+<!--                                                                <div class="pay-title">支付宝支付</div>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="cardpay"-->
+<!--                                                                 style="cursor: pointer">-->
+<!--                                                                <img src="/public/front/images/card.png"-->
+<!--                                                                     style="width: 50px; height: 50px">-->
+<!--                                                                <div class="pay-title">会员卡支付</div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+                                                <!-- 20元/7日-->
+<!--                                                <div class="btn-group">-->
+<!--                                                    <button class="el-button el-button&#45;&#45;default el-button&#45;&#45;small is-plain"-->
+<!--                                                            type="button" id="pay-btn" data-type="1">-->
+<!--                                                        <p>-->
+<!--                                                            <span>20元/7日</span>&nbsp;&nbsp;-->
+
+<!--                                                        </p>-->
+<!--                                                    </button>-->
+<!--                                                    <div class="dropdown-menu paymenu" style="width: 600px; text-align: center">-->
+<!--                                                        <div class="row" style="margin-top: 10px">-->
+<!--                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="wpay"-->
+<!--                                                                 style="cursor: pointer">-->
+<!--                                                                <img src="/public/front/images/wchat.png"-->
+<!--                                                                     style="width: 50px; height: 50px">-->
+<!--                                                                <div class="pay-title">微信支付</div>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="alipay"-->
+<!--                                                                 style="cursor: pointer">-->
+<!--                                                                <img src="/public/front/images/zfb.png"-->
+<!--                                                                     style="width: 50px; height: 50px">-->
+<!--                                                                <div class="pay-title">支付宝支付</div>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="cardpay"-->
+<!--                                                                 style="cursor: pointer">-->
+<!--                                                                <img src="/public/front/images/card.png"-->
+<!--                                                                     style="width: 50px; height: 50px">-->
+<!--                                                                <div class="pay-title">会员卡支付</div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+                                                <!-- 30元/15日-->
+<!--                                                <div class="btn-group">-->
+<!--                                                    <button class="el-button el-button&#45;&#45;default el-button&#45;&#45;small is-plain"-->
+<!--                                                            type="button" id="pay-btn" data-type="1">-->
+<!--                                                        <p>-->
+<!--                                                            <span>30元/15日</span>&nbsp;&nbsp;-->
+
+<!--                                                        </p>-->
+<!--                                                    </button>-->
+<!--                                                    <div class="dropdown-menu paymenu" style="width: 600px; text-align: center">-->
+<!--                                                        <div class="row" style="margin-top: 10px">-->
+<!--                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="wpay"-->
+<!--                                                                 style="cursor: pointer">-->
+<!--                                                                <img src="/public/front/images/wchat.png"-->
+<!--                                                                     style="width: 50px; height: 50px">-->
+<!--                                                                <div class="pay-title">微信支付</div>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="alipay"-->
+<!--                                                                 style="cursor: pointer">-->
+<!--                                                                <img src="/public/front/images/zfb.png"-->
+<!--                                                                     style="width: 50px; height: 50px">-->
+<!--                                                                <div class="pay-title">支付宝支付</div>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="cardpay"-->
+<!--                                                                 style="cursor: pointer">-->
+<!--                                                                <img src="/public/front/images/card.png"-->
+<!--                                                                     style="width: 50px; height: 50px">-->
+<!--                                                                <div class="pay-title">会员卡支付</div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+                                                <!-- 50元/30日-->
+<!--                                                <div class="btn-group">-->
+<!--                                                    <button class="el-button el-button&#45;&#45;default el-button&#45;&#45;small is-plain"-->
+<!--                                                            type="button" id="pay-btn" data-type="1">-->
+<!--                                                        <p>-->
+<!--                                                            <span>50元/30日</span>&nbsp;&nbsp;-->
+
+<!--                                                        </p>-->
+<!--                                                    </button>-->
+<!--                                                    <div class="dropdown-menu paymenu" style="width: 600px; text-align: center">-->
+<!--                                                        <div class="row" style="margin-top: 10px">-->
+<!--                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="wpay"-->
+<!--                                                                 style="cursor: pointer">-->
+<!--                                                                <img src="/public/front/images/wchat.png"-->
+<!--                                                                     style="width: 50px; height: 50px">-->
+<!--                                                                <div class="pay-title">微信支付</div>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="alipay"-->
+<!--                                                                 style="cursor: pointer">-->
+<!--                                                                <img src="/public/front/images/zfb.png"-->
+<!--                                                                     style="width: 50px; height: 50px">-->
+<!--                                                                <div class="pay-title">支付宝支付</div>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="cardpay"-->
+<!--                                                                 style="cursor: pointer">-->
+<!--                                                                <img src="/public/front/images/card.png"-->
+<!--                                                                     style="width: 50px; height: 50px">-->
+<!--                                                                <div class="pay-title">会员卡支付</div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <!--<button class="el-button el-button--default el-button--small is-plain" type="button" id="pay-btn" data-type="1">
                                                     <span>
                                                         <i class="el-icon-collection-tag"></i> 付费包月
                                                     </span>
                                                 </button>-->
                                                 {%if free == 'false' || !free %}
-<!--                                                <span class="el-tip" id="free-tips">包月2折优惠活动仅剩3天</span>-->
+                                                <!--                                                <span class="el-tip" id="free-tips">包月2折优惠活动仅剩3天</span>-->
                                                 {% endif %}
                                                 <input type="text" style="display: none" name="type" id="type">
                                             </div>
@@ -255,13 +387,13 @@
                                 系统在检测时会分析论文的前后文关系，所以请您提交论文的全部内容，如果是非全文的检测将不能保证检测的准确性。<br>
                                 被系统自动识别出来的非正文部分（如目录，标题，公式，图表，参考文献等）不参与检测，检测字数一般略小于论文字数
                             </div>
-<!--                            <div class="title">报告展示</div>-->
-<!--                            <ul class="clearfix">-->
-<!--                                <li>简洁报告</li>-->
-<!--                                <li>去除本人已发表文献报告</li>-->
-<!--                                <li>全文标明引文报告</li>-->
-<!--                                <li>全文对照报告</li>-->
-<!--                            </ul>-->
+                            <!--                            <div class="title">报告展示</div>-->
+                            <!--                            <ul class="clearfix">-->
+                            <!--                                <li>简洁报告</li>-->
+                            <!--                                <li>去除本人已发表文献报告</li>-->
+                            <!--                                <li>全文标明引文报告</li>-->
+                            <!--                                <li>全文对照报告</li>-->
+                            <!--                            </ul>-->
 
                         </div>
                     </div>
@@ -269,12 +401,9 @@
             </div>
         </div>
     </div>
-<!--    <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0"></div>-->
+    <!--    <div class="col-lg-3 col-md-1 col-sm-1 col-xs-0"></div>-->
 
 </div>
-
-
-
 
 
 <!--处理中-->

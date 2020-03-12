@@ -317,7 +317,7 @@ html{
     padding: 7px 15px!important;
 }
 .el-button {
-    width: 146px;
+    width: 115px;
     height: 33px;
     line-height: 33px;
     padding: 0px !important;
@@ -373,7 +373,7 @@ html{
 }
 
 .el-active {
-    width: 146px;
+    width: 115px;
     height: 33px;
     line-height: 33px;
     padding: 0 !important;
