@@ -1,0 +1,61 @@
+[2020-03-09T13:19:39.052] [INFO] http - 获取访问量
+[2020-03-09T13:19:39.068] [INFO] http - null
+[2020-03-09T13:19:39.068] [INFO] http - 100231
+[2020-03-09T13:19:39.068] [INFO] http - /
+[2020-03-09T13:19:39.081] [INFO] http - 访问量+1
+[2020-03-09T13:19:39.094] [INFO] http - [::ffff:127.0.0.1 GET / 200 43ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36]
+[2020-03-09T14:27:28.890] [INFO] http - 获取访问量
+[2020-03-09T14:27:28.905] [INFO] http - null
+[2020-03-09T14:27:28.906] [INFO] http - 100235
+[2020-03-09T14:27:28.906] [INFO] http - /
+[2020-03-09T14:27:28.922] [INFO] http - 访问量+1
+[2020-03-09T14:27:28.927] [INFO] http - [::ffff:127.0.0.1 GET / 200 38ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36]
+[2020-03-09T14:27:40.693] [INFO] http - 获取访问量
+[2020-03-09T14:27:40.714] [INFO] http - null
+[2020-03-09T14:27:40.714] [INFO] http - 100236
+[2020-03-09T14:27:40.716] [INFO] http - [::ffff:127.0.0.1 GET /public/front/css/bootstrap.min.css.map 404 23ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36]
+[2020-03-09T14:28:56.059] [INFO] http - 获取访问量
+[2020-03-09T14:28:56.070] [INFO] http - null
+[2020-03-09T14:28:56.070] [INFO] http - 100236
+[2020-03-09T14:28:56.070] [INFO] http - /
+[2020-03-09T14:28:56.081] [INFO] http - 访问量+1
+[2020-03-09T14:28:56.085] [INFO] http - [::ffff:127.0.0.1 GET / 200 26ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36]
+[2020-03-09T14:28:56.380] [INFO] http - 获取访问量
+[2020-03-09T14:28:56.419] [INFO] http - null
+[2020-03-09T14:28:56.419] [INFO] http - 100237
+[2020-03-09T14:28:56.420] [INFO] http - [::ffff:127.0.0.1 GET /public/front/css/bootstrap.min.css.map 404 40ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36]
+[2020-03-09T14:29:15.736] [INFO] http - 获取访问量
+[2020-03-09T14:29:15.747] [INFO] http - null
+[2020-03-09T14:29:15.748] [INFO] http - 100237
+[2020-03-09T14:29:15.748] [INFO] http - /
+[2020-03-09T14:29:15.761] [INFO] http - 访问量+1
+[2020-03-09T14:29:15.765] [INFO] http - [::ffff:127.0.0.1 GET / 200 30ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36]
+[2020-03-09T14:29:16.015] [INFO] http - 获取访问量
+[2020-03-09T14:29:16.026] [INFO] http - null
+[2020-03-09T14:29:16.026] [INFO] http - 100238
+[2020-03-09T14:29:16.027] [INFO] http - [::ffff:127.0.0.1 GET /public/front/css/bootstrap.min.css.map 404 12ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36]
+[2020-03-09T14:30:49.955] [INFO] http - 获取访问量
+[2020-03-09T14:30:49.968] [INFO] http - null
+[2020-03-09T14:30:49.968] [INFO] http - 100238
+[2020-03-09T14:30:49.969] [INFO] http - /
+[2020-03-09T14:30:49.985] [INFO] http - 访问量+1
+[2020-03-09T14:30:49.991] [INFO] http - [::ffff:127.0.0.1 GET / 200 37ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36]
+[2020-03-09T14:30:50.262] [INFO] http - 获取访问量
+[2020-03-09T14:30:50.280] [INFO] http - null
+[2020-03-09T14:30:50.280] [INFO] http - 100239
+[2020-03-09T14:30:50.281] [INFO] http - [::ffff:127.0.0.1 GET /public/front/css/bootstrap.min.css.map 404 19ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36]
+[2020-03-09T14:52:31.235] [INFO] http - 获取访问量
+[2020-03-09T14:52:31.249] [INFO] http - null
+[2020-03-09T14:52:31.249] [INFO] http - 100242
+[2020-03-09T14:52:31.249] [INFO] http - /
+[2020-03-09T14:52:31.260] [INFO] http - 访问量+1
+[2020-03-09T14:52:31.275] [INFO] http - [::ffff:127.0.0.1 GET / 200 42ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36]
+[2020-03-09T14:52:31.556] [INFO] http - 获取访问量
+[2020-03-09T14:52:31.576] [INFO] http - null
+[2020-03-09T14:52:31.576] [INFO] http - 100243
+[2020-03-09T14:52:31.578] [INFO] http - [::ffff:127.0.0.1 GET /public/front/css/bootstrap.min.css.map 404 23ms][ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36]
+[2020-03-09T16:02:51.523] [INFO] http - 获取访问量
+[2020-03-09T16:02:51.571] [INFO] http - null
+[2020-03-09T16:02:51.571] [INFO] http - 100249
+[2020-03-09T16:02:51.571] [INFO] http - /news
+[2020-03-09T16:02:51.575] [INFO] http - [::ffff:127.0.0.1 POST /news 200 64ms][http://127.0.0.1:8089/ HTTP/1.1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36]
