@@ -9,7 +9,28 @@ $(document).ready(function () {
     NewsInfo(id)//新闻列表接口
     NewsList_about();//获取相关文章
     NewsList_hot();//热点新闻
+    info_push();//推送
 });
+
+
+//主动推送
+function info_push() {
+    var data = ['http://www.biye.com.cn/news_info'];
+    $.ajax({
+        type: "post",
+        contentType: "application/json",
+        async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        url:  'http://data.zz.baidu.com/urls?site=www.biye.com.cn&token=ohhNOCSg4KUUjevK',    //请求发送到TestServlet处
+        data: data,//将js对象转为字符串
+        dataType: "json",        //返回数据形式为json
+        success: function (result) {
+            console.log(result)
+        },
+        error: function (errorMsg) {
+        }
+    });
+}
+
 
 function NewsInfo(id){
     var data = {
@@ -27,6 +48,7 @@ function NewsInfo(id){
         data: sendMessageEdit(data),//将js对象转为字符串
         dataType: "json",        //返回数据形式为json
         success: function (result) {
+            console.log(result)
             if (result.code == 200){
                 $(".news_info .title").html(result.newscontent.title);//标题
                 $(".news_info .info_author").html("作者："+result.newscontent.author);//作者
