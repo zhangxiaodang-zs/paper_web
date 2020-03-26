@@ -15,7 +15,7 @@ $(document).ready(function () {
 
 //主动推送
 function info_push() {
-    var data = ['http://www.biye.com.cn/news_info'];
+    var data =  ['http://www.biye.com.cn/news_info', 'http://www.biye.com.cn/question_info'];
     $.ajax({
         type: "post",
         contentType: "application/json",
