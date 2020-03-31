@@ -174,9 +174,10 @@ function paperResubmit(data,){
     });
 }
 
+//判断是否超过10分钟 超过10分钟重新上传
 function timeLeft(subtime){
     var leftTime =  (new Date()) - (new Date(subtime.replace(/-/g,  "/")));
-    if(leftTime > 40 * 60 * 1000){
+    if(leftTime > 10 * 60 * 1000){
         return false;
     }else{
         return true;
