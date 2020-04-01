@@ -50,7 +50,6 @@ function question_info(id){
             if (result.code == 200){
                 $(".news_info .title").html(result.questioncontent.title);//标题
                 $(".news_info .info_author").html("作者："+result.questioncontent.author);//作者
-                // $(".news_info .content p").html(result.questioncontent.content);//内容
                 $(".news_info .info_read").html("阅读 "+result.questioncontent.read);//阅读
                 $(".news_info .info_like").html("点赞 "+result.questioncontent.like);//点赞
                 $(".news_info .info_time").html(dateTimeFormat(result.questioncontent.add_time));//时间
