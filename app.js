@@ -30,6 +30,7 @@ swig.setDefaults({cache:false});
 
 app.use('/public',express.static(__dirname + '/public'));
 app.use('/node_modules',express.static(__dirname + '/node_modules'));
+app.use('/views',express.static(__dirname + '/views'));
 
 //设置日志处理
 log4js.configure();
