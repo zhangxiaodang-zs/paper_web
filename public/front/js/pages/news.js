@@ -90,12 +90,8 @@ $(".news_con ul").on('mouseenter', function () {
         localStorage.setItem('id', id);
         localStorage.setItem('s_title', s_title);
         localStorage.setItem('title', title);
-
-        //window.location.href=url+".html?id="+id;
         var form = document.createElement('form');
-        console.log(url)
-        // form.action = url+".html?id="+id;
-        form.action = url;
+        form.action = url+".html?id="+id;
         form.method = 'post';
         $(document.body).append(form);
         form.submit();
