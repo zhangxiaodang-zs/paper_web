@@ -6,16 +6,16 @@ $(document).ready(function () {
      s_title = localStorage.getItem('s_title');
      title = localStorage.getItem('title');
     $(".news_info_nav span").html(s_title+" > "+title);
-    NewsInfo(id)//获取新闻详情
+    NewsInfo(id)//新闻列表接口
     NewsList_about();//获取相关文章
     NewsList_hot();//热点新闻
-    info_push(id);//百度主动推送
+    info_push();//推送
 });
+
+
 //主动推送
-function info_push(id) {
-    console.log("主动推送")
-    var data =  webUrl+'news_info.html?id='+id;
-    console.log(data)
+function info_push() {
+    var data =  ['http://www.biye.com.cn/news_info', 'http://www.biye.com.cn/question_info'];
     $.ajax({
         type: "post",
         contentType: "application/json",
@@ -24,13 +24,14 @@ function info_push(id) {
         data: data,//将js对象转为字符串
         dataType: "json",        //返回数据形式为json
         success: function (result) {
-            console.log(result.success)
+            console.log(result)
         },
         error: function (errorMsg) {
-
         }
     });
 }
+
+
 function NewsInfo(id){
     var data = {
         "newsid": id,
@@ -51,12 +52,10 @@ function NewsInfo(id){
             if (result.code == 200){
                 $(".news_info .title").html(result.newscontent.title);//标题
                 $(".news_info .info_author").html("作者："+result.newscontent.author);//作者
+                $(".news_info .content p").html(result.newscontent.content);//内容
                 $(".news_info .info_read").html("阅读 "+result.newscontent.read);//阅读
                 $(".news_info .info_like").html("点赞 "+result.newscontent.like);//点赞
                 $(".news_info .info_time").html(dateTimeFormat(result.newscontent.add_time));//时间
-                $(".news_info .content").append(
-                    '<iframe align="center" name="iFrame1" id="iFrame1" width="100%" height="100%" onload="changeFrameHeight()" src="/views/statics/'+result.newscontent.id+'.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>'
-                )
             }
 
         },
@@ -64,19 +63,6 @@ function NewsInfo(id){
         }
     });
 }
-//iframe自适应高度
-function changeFrameHeight(){
-    var ifm= document.getElementById("iFrame1");
-    ifm.height=document.documentElement.clientHeight;
-
-}
-window.onresize=function(){
-    changeFrameHeight();
-
-}
-
-
-
 //获取相关文章
 function NewsList_about(){
     var data = {

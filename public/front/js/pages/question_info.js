@@ -9,28 +9,8 @@ $(document).ready(function () {
     question_info(id)//新闻列表接口
     NewsList_about();//获取相关文章
     NewsList_hot();//热点新闻
-    info_push(id);//百度主动推送
 });
-//主动推送
-function info_push(id) {
-    console.log("主动推送")
-    var data =  webUrl+'question_info.html?id='+id;
-    console.log(data)
-    $.ajax({
-        type: "post",
-        contentType: "application/json",
-        async: true,           //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url:  'http://data.zz.baidu.com/urls?site=www.biye.com.cn&token=ohhNOCSg4KUUjevK',    //请求发送到TestServlet处
-        data: data,//将js对象转为字符串
-        dataType: "json",        //返回数据形式为json
-        success: function (result) {
-            console.log(result.success)
-        },
-        error: function (errorMsg) {
 
-        }
-    });
-}
 function question_info(id){
     var data = {
         "questionid": id,
@@ -50,29 +30,16 @@ function question_info(id){
             if (result.code == 200){
                 $(".news_info .title").html(result.questioncontent.title);//标题
                 $(".news_info .info_author").html("作者："+result.questioncontent.author);//作者
-                // $(".news_info .content p").html(result.questioncontent.content);//内容
+                $(".news_info .content p").html(result.questioncontent.content);//内容
                 $(".news_info .info_read").html("阅读 "+result.questioncontent.read);//阅读
                 $(".news_info .info_like").html("点赞 "+result.questioncontent.like);//点赞
                 $(".news_info .info_time").html(dateTimeFormat(result.questioncontent.add_time));//时间
-                $(".news_info .content").append(
-                    '<iframe align="center" name="iFrame1" id="iFrame1" width="100%" height="100%" onload="changeFrameHeight()" src="/views/statics/'+result.questioncontent.id+'.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>'
-                )
             }
 
         },
         error: function (errorMsg) {
         }
     });
-}
-//iframe自适应高度
-function changeFrameHeight(){
-    var ifm= document.getElementById("iFrame1");
-    ifm.height=document.documentElement.clientHeight;
-
-}
-window.onresize=function(){
-    changeFrameHeight();
-
 }
 //获取相关文章
 function NewsList_about(){
