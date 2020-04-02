@@ -146,23 +146,9 @@ router.post('/news',function(req,res,next){
     });
 });
 //新闻详情
-router.post('/news_info.html',function(req,res,next){
-    logger.info(req.url);
-    res.render('front/news_info.html',{
-        openid: req.session["openid"],
-        nickname: req.session["nickname"],
-        headimgurl :req.session["headimgurl"],
-        vip: req.session["vip"],
-        free: req.session["free"],
-        code: req.session["code"],
-        endtime: req.session["endtime"],
-        visit: visit,
-        thumbup: req.session["thumbup"]
-    });
-});
-// router.post('/news_info',function(req,res,next){
+// router.post('/news_info.html',function(req,res,next){
 //     logger.info(req.url);
-//     res.render('front/news_info',{
+//     res.render('front/news_info.html',{
 //         openid: req.session["openid"],
 //         nickname: req.session["nickname"],
 //         headimgurl :req.session["headimgurl"],
@@ -174,24 +160,26 @@ router.post('/news_info.html',function(req,res,next){
 //         thumbup: req.session["thumbup"]
 //     });
 // });
+
+router.post('/news_info',function(req,res,next){
+    logger.info(req.url);
+    res.render('front/news_info',{
+        openid: req.session["openid"],
+        nickname: req.session["nickname"],
+        headimgurl :req.session["headimgurl"],
+        vip: req.session["vip"],
+        free: req.session["free"],
+        code: req.session["code"],
+        endtime: req.session["endtime"],
+        visit: visit,
+        thumbup: req.session["thumbup"]
+    });
+});
+
 //问题详情
-router.post('/question_info.html',function(req,res,next){
-    logger.info(req.url);
-    res.render('front/question_info.html',{
-        openid: req.session["openid"],
-        nickname: req.session["nickname"],
-        headimgurl :req.session["headimgurl"],
-        vip: req.session["vip"],
-        free: req.session["free"],
-        code: req.session["code"],
-        endtime: req.session["endtime"],
-        visit: visit,
-        thumbup: req.session["thumbup"]
-    });
-});
-// router.post('/question_info',function(req,res,next){
+// router.post('/question_info.html',function(req,res,next){
 //     logger.info(req.url);
-//     res.render('front/question_info',{
+//     res.render('front/question_info.html',{
 //         openid: req.session["openid"],
 //         nickname: req.session["nickname"],
 //         headimgurl :req.session["headimgurl"],
@@ -203,6 +191,20 @@ router.post('/question_info.html',function(req,res,next){
 //         thumbup: req.session["thumbup"]
 //     });
 // });
+router.post('/question_info',function(req,res,next){
+    logger.info(req.url);
+    res.render('front/question_info',{
+        openid: req.session["openid"],
+        nickname: req.session["nickname"],
+        headimgurl :req.session["headimgurl"],
+        vip: req.session["vip"],
+        free: req.session["free"],
+        code: req.session["code"],
+        endtime: req.session["endtime"],
+        visit: visit,
+        thumbup: req.session["thumbup"]
+    });
+});
 router.post('/user/save', function(req,res, next){
     logger.info("存储用户信息");
     var vip = req.body.vip;

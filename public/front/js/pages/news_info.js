@@ -54,9 +54,10 @@ function NewsInfo(id){
                 $(".news_info .info_read").html("阅读 "+result.newscontent.read);//阅读
                 $(".news_info .info_like").html("点赞 "+result.newscontent.like);//点赞
                 $(".news_info .info_time").html(dateTimeFormat(result.newscontent.add_time));//时间
-                $(".news_info .content").append(
-                    '<iframe align="center" name="iFrame1" id="iFrame1" width="100%" height="100%" onload="changeFrameHeight()" src="/views/statics/'+result.newscontent.id+'.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>'
-                )
+                $(".news_info .content p").html(result.newscontent.content)
+                // $(".news_info .content").append(
+                //     '<iframe align="center" name="iFrame1" id="iFrame1" width="100%" height="100%" onload="changeFrameHeight()" src="/views/statics/'+result.newscontent.id+'.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>'
+                // )
             }
 
         },

@@ -84,7 +84,8 @@ $(".question_con ul").on('mouseenter', function () {
         localStorage.setItem('s_title', s_title);
         localStorage.setItem('title', title);
         var form = document.createElement('form');
-        form.action = url+".html?id="+id;
+        // form.action = url+".html?id="+id;
+        form.action = url;
         form.method = 'post';
         $(document.body).append(form);
         form.submit();
